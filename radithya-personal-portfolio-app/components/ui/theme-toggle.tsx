@@ -1,6 +1,6 @@
 "use client"
 
-import { useTheme } from "@/node_modules/next-themes/dist/index";
+import { useTheme } from "next-themes";
 import { Button } from "./button";
 import { FaMoon, FaSun } from "react-icons/fa"
 
