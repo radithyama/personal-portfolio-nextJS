@@ -7,7 +7,7 @@ import ThemeToggle from "@/components/ui/theme-toggle";
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaMedium, FaTruckLoading } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 
 
@@ -65,7 +65,7 @@ export default function Home() {
                 Bridging Software Development and Cybersecurity Excellence
               </h2>
               <p className="text-gray-600 text-sm dark:text-gray-400 max-w-2xl">
-                Experienced in <span className="text-black dark:text-white">full-stack development</span>, I'm providing professional expertise in building robust, scalable applications that prioritize both functionality and security.
+                Experienced in <span className="text-black dark:text-white">full-stack development</span>, I&apos;m providing professional expertise in building robust, scalable applications that prioritize both functionality and security.
                 Currently contributing as a Backend Developer, I specialize in crafting end-to-end solutions using technologies such as <span className="text-black dark:text-white">Java, Spring Boot, Apache Kafka Node.js, React.js, and Docker</span>.
                 My work involves designing backend architectures, developing responsive frontend interfaces, and deploying containerized applications with Kubernetes.
                 Additionally, I leverage tools like Cloud Services like <span className="text-black dark:text-white">Google Cloud Platform, AWS and Jenkins</span> to ensure seamless integration and deployment, maintaining a balance between rapid development and high-quality delivery.
@@ -157,7 +157,7 @@ export default function Home() {
                   <p className="text-blue-600 dark:text-blue-400">AstraPay</p>
 
                   <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Developing AstraPay's merchant transaction dashboard, contributed to the administration
+                  Developing AstraPay&apos;s merchant transaction dashboard, contributed to the administration
                   process during acquiring public license from national regulatory organization.
                   </p>
 
@@ -196,7 +196,7 @@ export default function Home() {
               <div className="flex items-center justify-between">
                 <div className="space-y-1">
                   <p className="text-sm text-gray-600 dark:text-gray-400">2020 - 2024</p>
-                  <p className="font-medium">Bachelor's of Science, Computer Science</p>
+                  <p className="font-medium">Bachelor&apos;s of Science, Computer Science</p>
                   <p className="text-blue-600 dark:text-blue-400">BINUS University</p>
 
                   <p className="text-sm text-gray-600 dark:text-gray-400">
