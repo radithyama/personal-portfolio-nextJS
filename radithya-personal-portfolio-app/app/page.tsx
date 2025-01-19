@@ -2,11 +2,13 @@
 
 import Image from "@/node_modules/next/image";
 import pp from "../public/portfolio-profile-pic.jpeg";
+import loading from"../public/loading.png"
 import ThemeToggle from "@/components/ui/theme-toggle";
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium, FaTruckLoading } from "react-icons/fa";
+import { Card, CardContent } from "@/components/ui/card";
 
 
 
@@ -76,6 +78,8 @@ export default function Home() {
               </p>
             </motion.div>
 
+            {/* SOCIAL MEDIA & RESUME */}
+
             <motion.div
             initial={{opacity: 0, x: 50}}
             animate={{opacity:1, x: 0}}
@@ -98,6 +102,154 @@ export default function Home() {
                 <FaLinkedin className="w-6 h-6"></FaLinkedin>
               </Link>
             </motion.div>
+
+            {/* WORK EXPERIENCE */}
+
+            <motion.section
+            initial={{opacity: 0, y: 100}}
+            animate={{opacity:1, y: 0}}
+            transition={{duration: 0.5}}
+            className= "space-y-8">
+              <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600
+              via-indigo-500 to-sky-500 bg-clip-text text-transparent
+              inline-block">Experience</h2>
+
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">July, 2024 - Present</p>
+                  <p className="font-medium">Backend Engineer</p>
+                  <p className="text-blue-600 dark:text-blue-400">Bank Negara Indonesia</p>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Developing Wondr by BNI backend system, including QRIS Domestic & International Transaction,
+                  NFC Transaction, Bill Payment, Wealth Management System and Personal Financial Insight
+                  for the customer.
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">February, 2022 - July, 2024</p>
+                  <p className="font-medium">Product Engineer</p>
+                  <p className="text-blue-600 dark:text-blue-400">AstraPay</p>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Developing AstraPay, including main features such as account balance transfer,
+                  QRIS Domestic Transaction, Disbursement, Bank Top-Ups using virtual account, 
+                  Open API for third-parties integration, and backoffice dashboard for reports &
+                  transaction monitoring.
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">August, 2021, - December, 2021</p>
+                  <p className="font-medium">Product Engineering Intern</p>
+                  <p className="text-blue-600 dark:text-blue-400">AstraPay</p>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Developing AstraPay's merchant transaction dashboard, contributed to the administration
+                  process during acquiring public license from national regulatory organization.
+                  </p>
+
+                </div>
+              </div>
+            </div>
+            </motion.section>
+
+            {/* EDUCATION */}
+
+            <motion.section
+            initial={{opacity: 0, y: 100}}
+            animate={{opacity:1, y: 0}}
+            transition={{duration: 0.5}}
+            className= "space-y-8">
+              <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600
+              via-indigo-500 to-sky-500 bg-clip-text text-transparent
+              inline-block">Education</h2>
+
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">2024-2026</p>
+                  <p className="font-medium">Masters of Cybersecurity</p>
+                  <p className="text-blue-600 dark:text-blue-400">Monash University</p>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  GPA : 3.50 / 4.00
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">2020 - 2024</p>
+                  <p className="font-medium">Bachelor's of Science, Computer Science</p>
+                  <p className="text-blue-600 dark:text-blue-400">BINUS University</p>
+
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  GPA : 3.64 / 4.00
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="space-y-1">
+                  <p className="text-sm text-gray-600 dark:text-gray-400">2017 - 2020</p>
+                  <p className="font-medium">High School Degree</p>
+                  <p className="text-blue-600 dark:text-blue-400">SMA Negeri 6 Jakarta</p>
+
+                </div>
+              </div>
+            </div>
+            </motion.section>
+
+            {/* PROJECTS */}
+
+            <motion.section
+            initial={{opacity: 0, y: 100}}
+            animate={{opacity:1, y: 0}}
+            transition={{duration: 0.5}}
+            className= "space-y-5">
+
+              <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600
+              via-indigo-500 to-sky-500 bg-clip-text text-transparent
+              inline-block">Projects</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                cursor-pointer">
+                  <CardContent className="p-4">
+                    <Image src={loading} alt="still loading" className="rounded-lg mb-4"/>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-medium">Coming Soon</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Cool Application incoming! </p>
+                      </div>
+                      <Button variant="ghost" size="icon">➜</Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <p className="text-gray-500">©️ 2025 Radithya Mirza Aribowo</p>
+            </motion.section>
           </section>
         </main>
       </div>
