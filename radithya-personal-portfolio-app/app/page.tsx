@@ -240,7 +240,7 @@ export default function Home() {
                     <div className="flex items-center justify-between">
                       <div>
                         <h3 className="font-medium">Coming Soon</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Cool Application incoming! </p>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Let me cook! </p>
                       </div>
                       <Button variant="ghost" size="icon">➜</Button>
                     </div>
