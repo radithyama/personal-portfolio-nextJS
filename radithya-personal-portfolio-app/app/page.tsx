@@ -2,6 +2,7 @@
 
 import Image from "@/node_modules/next/image";
 import pp from "../public/portfolio-profile-pic.jpeg";
+import planit from "../public/planit-webpage.png"
 import loading from"../public/loading.png"
 import ThemeToggle from "@/components/ui/theme-toggle";
 import { motion } from 'framer-motion';
@@ -236,13 +237,15 @@ export default function Home() {
                 dark:border-zinc-800 transition-transform duration-300 hover:scale-105
                 cursor-pointer">
                   <CardContent className="p-4">
-                    <Image src={loading} alt="still loading" className="rounded-lg mb-4"/>
+                    <Image src={planit} alt="Planit" className="rounded-lg mb-4"/>
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="font-medium">Coming Soon</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Let me cook! </p>
+                        <h3 className="font-medium">Planit</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Ready to plan your trip? </p>
                       </div>
+                      <Link href={"https://planit-planner.vercel.app/"}>
                       <Button variant="ghost" size="icon">➜</Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
