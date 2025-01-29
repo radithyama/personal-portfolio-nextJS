@@ -3,7 +3,6 @@
 import Image from "@/node_modules/next/image";
 import pp from "../public/portfolio-profile-pic.jpeg";
 import planit from "../public/planit-webpage.png"
-import loading from"../public/loading.png"
 import ThemeToggle from "@/components/ui/theme-toggle";
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
