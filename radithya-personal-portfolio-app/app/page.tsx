@@ -248,10 +248,22 @@ export default function Home() {
                       </Link>
                     </div>
                   </CardContent>
+                  <CardContent className="p-4">
+                    <Image src={musawarah} alt="Musawarah" className="rounded-lg mb-4"/>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-medium">Musawarah</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Autodebit donation app</p>
+                      </div>
+                      <Link href={"https://musawarah.vercel.app/"}>
+                      <Button variant="ghost" size="icon">➜</Button>
+                      </Link>
+                    </div>
+                  </CardContent>
                 </Card>
                 <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
                 dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                cursor-pointer"></Card>
+                cursor-pointer">
                   <CardContent className="p-4">
                     <Image src={musawarah} alt="Musawarah" className="rounded-lg mb-4"/>
                     <div className="flex items-center justify-between">
