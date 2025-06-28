@@ -173,7 +173,7 @@ export default function ComingSoonDetail() {
               Q3 2025
             </p>
             <p className="text-gray-600 dark:text-gray-400">
-              Currently in research and development phase as part of my Master's thesis at Monash University
+              Currently in research and development phase as part of my Master&apos;s thesis at Monash University
             </p>
           </motion.div>
         </motion.div>
