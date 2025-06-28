@@ -234,54 +234,54 @@ export default function Home() {
               inline-block">Projects</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                cursor-pointer">
-                  <CardContent className="p-4">
-                    <Image src={planit} alt="Planit" className="rounded-lg mb-4"/>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-medium">Planit</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Ready to plan your trip? </p>
+                <Link href="/projects/planit">
+                  <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                  dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                  cursor-pointer">
+                    <CardContent className="p-4">
+                      <Image src={planit} alt="Planit" className="rounded-lg mb-4"/>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="font-medium">Planit</h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Ready to plan your trip? </p>
+                        </div>
+                        <Button variant="ghost" size="icon">➜</Button>
                       </div>
-                      <Link href={"https://planit-planner.vercel.app/"}>
-                      <Button variant="ghost" size="icon">➜</Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                cursor-pointer">
-                  <CardContent className="p-4">
-                    <Image src={musawarah} alt="Musawarah" className="rounded-lg mb-4"/>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-medium">Musawarah</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Autodebit donation app</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/projects/musawarah">
+                  <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                  dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                  cursor-pointer">
+                    <CardContent className="p-4">
+                      <Image src={musawarah} alt="Musawarah" className="rounded-lg mb-4"/>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="font-medium">Musawarah</h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Autodebit donation app</p>
+                        </div>
+                        <Button variant="ghost" size="icon">➜</Button>
                       </div>
-                      <Link href={"https://musawarah.vercel.app/"}>
-                      <Button variant="ghost" size="icon">➜</Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                cursor-pointer">
-                  <CardContent className="p-4">
-                    <Image src={shinyapp} alt="Radithyama shiny app" className="rounded-lg mb-4"/>
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h3 className="font-medium">USA Electric Vehicle Dashboard</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">Shiny App Data Visualsation Dashboard Using R</p>
+                    </CardContent>
+                  </Card>
+                </Link>
+                <Link href="/projects/shiny-app">
+                  <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                  dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                  cursor-pointer">
+                    <CardContent className="p-4">
+                      <Image src={shinyapp} alt="Radithyama shiny app" className="rounded-lg mb-4"/>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h3 className="font-medium">USA Electric Vehicle Dashboard</h3>
+                          <p className="text-sm text-gray-600 dark:text-gray-400">Shiny App Data Visualsation Dashboard Using R</p>
+                        </div>
+                        <Button variant="ghost" size="icon">➜</Button>
                       </div>
-                      <Link href={"https://radithyama.shinyapps.io/home/"}>
-                      <Button variant="ghost" size="icon">➜</Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </Link>
               </div>
 
               <p className="text-gray-500">©️ 2025 Radithya Mirza Aribowo</p>
