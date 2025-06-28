@@ -4,6 +4,7 @@ import Image from "@/node_modules/next/image";
 import pp from "../public/portfolio-profile-pic.jpeg";
 import planit from "../public/planit-webpage.png"
 import musawarah from "../public/musawarah-webpage.png"
+import shinyapp from "../public/shiny-app.png"
 import ThemeToggle from "@/components/ui/theme-toggle";
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -260,6 +261,22 @@ export default function Home() {
                         <p className="text-sm text-gray-600 dark:text-gray-400">Autodebit donation app</p>
                       </div>
                       <Link href={"https://musawarah.vercel.app/"}>
+                      <Button variant="ghost" size="icon">➜</Button>
+                      </Link>
+                    </div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                cursor-pointer">
+                  <CardContent className="p-4">
+                    <Image src={shinyapp} alt="Radithyama shiny app" className="rounded-lg mb-4"/>
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-medium">Musawarah</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">Shiny App Data Visualsation Dashboard Using R</p>
+                      </div>
+                      <Link href={"https://radithyama.shinyapps.io/home/"}>
                       <Button variant="ghost" size="icon">➜</Button>
                       </Link>
                     </div>
