@@ -11,6 +11,14 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 
@@ -233,55 +241,131 @@ export default function Home() {
               via-indigo-500 to-sky-500 bg-clip-text text-transparent
               inline-block">Projects</h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <Link href="/projects/planit">
-                  <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                  dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                  cursor-pointer">
-                    <CardContent className="p-4">
-                      <Image src={planit} alt="Planit" className="rounded-lg mb-4"/>
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="font-medium">Planit</h3>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">Ready to plan your trip? </p>
+              {/* Projects Slider */}
+              <div className="relative">
+                <Swiper
+                  modules={[Navigation, Pagination, Autoplay]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  navigation={{
+                    prevEl: '.swiper-button-prev-custom',
+                    nextEl: '.swiper-button-next-custom',
+                  }}
+                  pagination={{ 
+                    clickable: true,
+                    bulletClass: 'swiper-pagination-bullet !bg-gray-400 !opacity-50',
+                    bulletActiveClass: 'swiper-pagination-bullet-active !bg-gradient-to-r !from-rose-600 !via-indigo-500 !to-sky-500 !opacity-100'
+                  }}
+                  autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                  }}
+                  breakpoints={{
+                    640: {
+                      slidesPerView: 2,
+                    },
+                    1024: {
+                      slidesPerView: 3,
+                    },
+                  }}
+                  className="!pb-12"
+                >
+                  <SwiperSlide>
+                    <Link href="/projects/planit">
+                      <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                      dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                      cursor-pointer h-full">
+                        <CardContent className="p-4 h-[280px] flex flex-col">
+                          <div className="h-40 mb-4 overflow-hidden rounded-lg">
+                            <Image src={planit} alt="Planit" className="w-full h-full object-cover"/>
+                          </div>
+                          <div className="flex items-center justify-between flex-1">
+                            <div className="flex-1 min-w-0 pr-2">
+                              <h3 className="font-medium truncate">Planit</h3>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Ready to plan your trip?</p>
+                            </div>
+                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </SwiperSlide>
+                  
+                  <SwiperSlide>
+                    <Link href="/projects/musawarah">
+                      <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                      dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                      cursor-pointer h-full">
+                        <CardContent className="p-4 h-[280px] flex flex-col">
+                          <div className="h-40 mb-4 overflow-hidden rounded-lg">
+                            <Image src={musawarah} alt="Musawarah" className="w-full h-full object-cover"/>
+                          </div>
+                          <div className="flex items-center justify-between flex-1">
+                            <div className="flex-1 min-w-0 pr-2">
+                              <h3 className="font-medium truncate">Musawarah</h3>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Autodebit donation app</p>
+                            </div>
+                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </SwiperSlide>
+                  
+                  <SwiperSlide>
+                    <Link href="/projects/shiny-app">
+                      <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
+                      dark:border-zinc-800 transition-transform duration-300 hover:scale-105
+                      cursor-pointer h-full">
+                        <CardContent className="p-4 h-[280px] flex flex-col">
+                          <div className="h-40 mb-4 overflow-hidden rounded-lg">
+                            <Image src={shinyapp} alt="Radithyama shiny app" className="w-full h-full object-cover"/>
+                          </div>
+                          <div className="flex items-center justify-between flex-1">
+                            <div className="flex-1 min-w-0 pr-2">
+                              <h3 className="font-medium truncate">USA Electric Vehicle Dashboard</h3>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Shiny App Data Visualisation Dashboard Using R</p>
+                            </div>
+                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </SwiperSlide>
+                  
+                  <SwiperSlide>
+                    <Link href="/projects/coming-soon">
+                      <Card className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 border-gray-200 
+                      dark:border-zinc-700 transition-transform duration-300 hover:scale-105
+                      cursor-pointer h-full relative overflow-hidden">
+                        <CardContent className="p-4 h-[280px] flex flex-col relative z-10">
+                          <div className="h-40 mb-4 bg-gradient-to-br from-rose-100 via-indigo-100 to-sky-100 dark:from-rose-900/20 dark:via-indigo-900/20 dark:to-sky-900/20 rounded-lg flex items-center justify-center relative overflow-hidden">
+                            <Sparkles className="w-16 h-16 text-gray-400 dark:text-gray-600" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 rounded-lg animate-pulse"></div>
+                          </div>
+                          <div className="flex items-center justify-between flex-1">
+                            <div className="flex-1 min-w-0 pr-2">
+                              <h3 className="font-medium bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent truncate">Coming Soon...</h3>
+                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Something amazing is in development</p>
+                            </div>
+                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
+                          </div>
+                        </CardContent>
+                        <div className="absolute top-2 right-2 z-20">
+                          <div className="w-3 h-3 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 rounded-full animate-pulse"></div>
                         </div>
-                        <Button variant="ghost" size="icon">➜</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/projects/musawarah">
-                  <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                  dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                  cursor-pointer">
-                    <CardContent className="p-4">
-                      <Image src={musawarah} alt="Musawarah" className="rounded-lg mb-4"/>
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="font-medium">Musawarah</h3>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">Autodebit donation app</p>
-                        </div>
-                        <Button variant="ghost" size="icon">➜</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
-                <Link href="/projects/shiny-app">
-                  <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                  dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                  cursor-pointer">
-                    <CardContent className="p-4">
-                      <Image src={shinyapp} alt="Radithyama shiny app" className="rounded-lg mb-4"/>
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="font-medium">USA Electric Vehicle Dashboard</h3>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">Shiny App Data Visualsation Dashboard Using R</p>
-                        </div>
-                        <Button variant="ghost" size="icon">➜</Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      </Card>
+                    </Link>
+                  </SwiperSlide>
+                </Swiper>
+
+                {/* Custom Navigation Buttons */}
+                <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white dark:bg-zinc-800 rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 transition-colors -translate-x-1/2">
+                  <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                </button>
+                <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white dark:bg-zinc-800 rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 transition-colors translate-x-1/2">
+                  <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                </button>
               </div>
 
               <p className="text-gray-500">©️ 2025 Radithya Mirza Aribowo</p>
