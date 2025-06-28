@@ -273,7 +273,7 @@ export default function Home() {
                     <Image src={shinyapp} alt="Radithyama shiny app" className="rounded-lg mb-4"/>
                     <div className="flex items-center justify-between">
                       <div>
-                        <h3 className="font-medium">Musawarah</h3>
+                        <h3 className="font-medium">USA Electric Vehicle Dashboard</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">Shiny App Data Visualsation Dashboard Using R</p>
                       </div>
                       <Link href={"https://radithyama.shinyapps.io/home/"}>
