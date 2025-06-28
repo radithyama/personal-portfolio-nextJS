@@ -50,7 +50,7 @@ export default function MusawarahDetail() {
             <Link href="#" target="_blank">
               <Button variant="outline" className="flex items-center gap-2">
                 <Github className="w-4 h-4" />
-                Source Code
+                Contact Me
               </Button>
             </Link>
           </div>
@@ -151,10 +151,8 @@ export default function MusawarahDetail() {
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Next.js</span>
                     <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Node.js</span>
-                    <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">PostgreSQL</span>
-                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Stripe API</span>
+                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">iFortePay API</span>
                     <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">TailwindCSS</span>
-                    <span className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">Prisma ORM</span>
                   </div>
                 </div>
               </CardContent>

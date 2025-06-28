@@ -50,7 +50,7 @@ export default function ShinyAppDetail() {
             <Link href="#" target="_blank">
               <Button variant="outline" className="flex items-center gap-2">
                 <Github className="w-4 h-4" />
-                Source Code
+                Contact Me
               </Button>
             </Link>
           </div>
