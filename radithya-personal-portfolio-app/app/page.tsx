@@ -422,10 +422,10 @@ export default function Home() {
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               {/* PROJECT ITEM */}
-              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                <Image src={planit} alt="Planit Webpage" className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                <Image src={planit} alt="Planit" fill className="object-cover transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
                 <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <h3 className="text-white text-lg font-semibold mb-2">Planit Webpage</h3>
+                  <h3 className="text-white text-lg font-semibold mb-2">Planit</h3>
                   <p className="text-gray-300 text-sm text-center mb-4">
                     A responsive webpage for Planit, showcasing modern web development techniques.
                   </p>
@@ -436,12 +436,12 @@ export default function Home() {
               </div>
 
               {/* PROJECT ITEM */}
-              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                <Image src={musawarah} alt="Musawarah Webpage" className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                <Image src={musawarah} alt="Musawarah" fill className="object-cover transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
                 <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <h3 className="text-white text-lg font-semibold mb-2">Musawarah Webpage</h3>
+                  <h3 className="text-white text-lg font-semibold mb-2">Musawarah</h3>
                   <p className="text-gray-300 text-sm text-center mb-4">
-                    A dynamic webpage for Musawarah, built with a focus on user experience and performance.
+                    A dynamic donation webpage for Musawarah, built with a focus on user experience and performance.
                   </p>
                   <Link href="/projects/musawarah" className="text-white text-sm font-medium underline">
                     View Details
@@ -450,10 +450,10 @@ export default function Home() {
               </div>
 
               {/* PROJECT ITEM */}
-              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
-                <Image src={shinyapp} alt="Shiny App" className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
+                <Image src={shinyapp} alt="USA EV Dashboard" fill className="object-cover transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
                 <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <h3 className="text-white text-lg font-semibold mb-2">Shiny App</h3>
+                  <h3 className="text-white text-m font-semibold mb-2">USA EV Dashboard</h3>
                   <p className="text-gray-300 text-sm text-center mb-4">
                     An interactive web application built with Shiny, demonstrating data visualization and analysis capabilities.
                   </p>
