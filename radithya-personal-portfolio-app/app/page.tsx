@@ -9,11 +9,12 @@ import ThemeToggle from "@/components/ui/theme-toggle";
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaMedium } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMedium, FaReact, FaMobileAlt, FaAws, FaGoogle, FaDocker, FaShieldAlt } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from "react";
 
 // Import Swiper styles
 import 'swiper/css';
@@ -23,6 +24,44 @@ import 'swiper/css/pagination';
 
 
 export default function Home() {
+  // Modal state
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalSkill, setModalSkill] = useState<null | string>(null);
+
+  // Skill details
+  const skillDetails: Record<string, { title: string; description: string }> = {
+    "Web Development": {
+      title: "Web Development",
+      description:
+        "Built and maintained scalable web applications using React.js, Next.js, Node.js, and Spring Boot. Experience includes designing REST APIs, responsive UIs, authentication, and integrating with cloud services.",
+    },
+    "Mobile Development": {
+      title: "Mobile Development",
+      description:
+        "Developed mobile apps using React Native and Flutter. Delivered features such as push notifications, secure authentication, and seamless API integration for fintech and productivity apps.",
+    },
+    AWS: {
+      title: "AWS",
+      description:
+        "Deployed and managed applications on AWS using EC2, S3, RDS, Lambda, and IAM. Automated CI/CD pipelines with Jenkins and GitHub Actions for robust cloud deployments.",
+    },
+    "Google Cloud": {
+      title: "Google Cloud",
+      description:
+        "Utilized Google Cloud Platform (GCP) services including Compute Engine, Cloud Functions, Pub/Sub, and Firestore for scalable backend and data processing solutions.",
+    },
+    "DevOps / Docker": {
+      title: "DevOps / Docker",
+      description:
+        "Containerized applications with Docker, orchestrated deployments using Kubernetes, and implemented CI/CD pipelines for automated testing and deployment.",
+    },
+    Cybersecurity: {
+      title: "Cybersecurity",
+      description:
+        "Applied secure coding practices, performed vulnerability assessments, and researched secure software development as part of a Master’s in Cybersecurity.",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-white 
     dark:bg-black text-black dark:text-white transition-colors duration-300">
@@ -241,215 +280,189 @@ export default function Home() {
                 inline-block">Experiences</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                 {/* Web Development */}
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
-                  <CardContent className="flex flex-col items-center">
-                    <span className="text-4xl mb-2 text-indigo-500">
-                      {/* FaReact for web dev */}
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#6366F1"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="18" fontFamily="Arial" dy=".3em">{"</>"}</text></svg>
-                    </span>
-                    <h3 className="font-medium">Web Development</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">4+ years</p>
-                  </CardContent>
-                </Card>
+                <div className="relative group">
+                  <Card
+                    className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center p-6 h-48 min-h-[12rem] cursor-pointer"
+                    onClick={() => { setModalSkill("Web Development"); setModalOpen(true); }}
+                  >
+                    <CardContent className="flex flex-col items-center justify-center h-full w-full text-center gap-2 p-0">
+                      <FaReact className="text-4xl mb-2 text-indigo-500" />
+                      <h3 className="font-medium text-center">Web Development</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">4+ years</p>
+                    </CardContent>
+                    {/* Hover overlay */}
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                      <span className="text-white font-semibold">View Details</span>
+                    </div>
+                  </Card>
+                </div>
                 {/* Mobile Development */}
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
-                  <CardContent className="flex flex-col items-center">
-                    <span className="text-4xl mb-2 text-rose-500">
-                      {/* Mobile icon */}
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="4" fill="#F43F5E"/><rect x="16" y="30" width="8" height="2" rx="1" fill="white"/></svg>
-                    </span>
-                    <h3 className="font-medium">Mobile Development</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
-                  </CardContent>
-                </Card>
+                <div className="relative group">
+                  <Card
+                    className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center p-6 h-48 min-h-[12rem] cursor-pointer"
+                    onClick={() => { setModalSkill("Mobile Development"); setModalOpen(true); }}
+                  >
+                    <CardContent className="flex flex-col items-center justify-center h-full w-full text-center gap-2 p-0">
+                      <FaMobileAlt className="text-4xl mb-2 text-rose-500" />
+                      <h3 className="font-medium text-center">Mobile Development</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">2+ years</p>
+                    </CardContent>
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                      <span className="text-white font-semibold">View Details</span>
+                    </div>
+                  </Card>
+                </div>
                 {/* AWS */}
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
-                  <CardContent className="flex flex-col items-center">
-                    <span className="text-4xl mb-2 text-yellow-500">
-                      {/* AWS icon */}
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#FBBF24"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="16" fontFamily="Arial" dy=".3em">AWS</text></svg>
-                    </span>
-                    <h3 className="font-medium">AWS</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
-                  </CardContent>
-                </Card>
+                <div className="relative group">
+                  <Card
+                    className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center p-6 h-48 min-h-[12rem] cursor-pointer"
+                    onClick={() => { setModalSkill("AWS"); setModalOpen(true); }}
+                  >
+                    <CardContent className="flex flex-col items-center justify-center h-full w-full text-center gap-2 p-0">
+                      <FaAws className="text-4xl mb-2 text-yellow-500" />
+                      <h3 className="font-medium text-center">AWS</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">2+ years</p>
+                    </CardContent>
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                      <span className="text-white font-semibold">View Details</span>
+                    </div>
+                  </Card>
+                </div>
                 {/* GCP */}
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
-                  <CardContent className="flex flex-col items-center">
-                    <span className="text-4xl mb-2 text-sky-500">
-                      {/* GCP icon */}
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#0EA5E9"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="16" fontFamily="Arial" dy=".3em">GCP</text></svg>
-                    </span>
-                    <h3 className="font-medium">Google Cloud</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
-                  </CardContent>
-                </Card>
+                <div className="relative group">
+                  <Card
+                    className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center p-6 h-48 min-h-[12rem] cursor-pointer"
+                    onClick={() => { setModalSkill("Google Cloud"); setModalOpen(true); }}
+                  >
+                    <CardContent className="flex flex-col items-center justify-center h-full w-full text-center gap-2 p-0">
+                      <FaGoogle className="text-4xl mb-2 text-sky-500" />
+                      <h3 className="font-medium text-center">Google Cloud</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">2+ years</p>
+                    </CardContent>
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                      <span className="text-white font-semibold">View Details</span>
+                    </div>
+                  </Card>
+                </div>
                 {/* DevOps / Docker */}
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
-                  <CardContent className="flex flex-col items-center">
-                    <span className="text-4xl mb-2 text-blue-500">
-                      {/* Docker icon */}
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#3B82F6"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="14" fontFamily="Arial" dy=".3em">🐳</text></svg>
-                    </span>
-                    <h3 className="font-medium">DevOps / Docker</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
-                  </CardContent>
-                </Card>
+                <div className="relative group">
+                  <Card
+                    className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center p-6 h-48 min-h-[12rem] cursor-pointer"
+                    onClick={() => { setModalSkill("DevOps / Docker"); setModalOpen(true); }}
+                  >
+                    <CardContent className="flex flex-col items-center justify-center h-full w-full text-center gap-2 p-0">
+                      <FaDocker className="text-4xl mb-2 text-blue-500" />
+                      <h3 className="font-medium text-center">DevOps / Docker</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">2+ years</p>
+                    </CardContent>
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                      <span className="text-white font-semibold">View Details</span>
+                    </div>
+                  </Card>
+                </div>
                 {/* Cybersecurity */}
-                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
-                  <CardContent className="flex flex-col items-center">
-                    <span className="text-4xl mb-2 text-green-500">
-                      {/* Shield icon */}
-                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 6L32 10V18C32 27 20 34 20 34C20 34 8 27 8 18V10L20 6Z" fill="#22C55E"/><text x="50%" y="60%" textAnchor="middle" fill="white" fontSize="14" fontFamily="Arial" dy=".3em">🔒</text></svg>
-                    </span>
-                    <h3 className="font-medium">Cybersecurity</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">1+ years</p>
-                  </CardContent>
-                </Card>
+                <div className="relative group">
+                  <Card
+                    className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center p-6 h-48 min-h-[12rem] cursor-pointer"
+                    onClick={() => { setModalSkill("Cybersecurity"); setModalOpen(true); }}
+                  >
+                    <CardContent className="flex flex-col items-center justify-center h-full w-full text-center gap-2 p-0">
+                      <FaShieldAlt className="text-4xl mb-2 text-green-500" />
+                      <h3 className="font-medium text-center">Cybersecurity</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 text-center">1+ years</p>
+                    </CardContent>
+                    <div className="absolute inset-0 bg-black/60 dark:bg-black/70 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                      <span className="text-white font-semibold">View Details</span>
+                    </div>
+                  </Card>
+                </div>
               </div>
+              {/* Modal */}
+              {modalOpen && modalSkill && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+                  <div className="bg-white dark:bg-zinc-900 rounded-lg shadow-lg max-w-md w-full p-6 relative">
+                    <button
+                      className="absolute top-3 right-3 text-gray-500 hover:text-black dark:hover:text-white text-xl"
+                      onClick={() => setModalOpen(false)}
+                      aria-label="Close"
+                    >
+                      ×
+                    </button>
+                    <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent">
+                      {skillDetails[modalSkill].title}
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300">{skillDetails[modalSkill].description}</p>
+                  </div>
+                </div>
+              )}
             </motion.section>
+          </section>
 
-            {/* PROJECTS */}
-
-            <motion.section
+          {/* PORTFOLIO */}
+          <section className="space-y-10">
+            <motion.div
             initial={{opacity: 0, y: 100}}
             animate={{opacity:1, y: 0}}
             transition={{duration: 0.5}}
-            className= "space-y-5">
-
+            className="space-y-3">
               <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600
               via-indigo-500 to-sky-500 bg-clip-text text-transparent
-              inline-block">Projects</h2>
+              inline-block">Portfolio</h2>
 
-              {/* Projects Slider */}
-              <div className="relative">
-                <Swiper
-                  modules={[Navigation, Pagination, Autoplay]}
-                  spaceBetween={20}
-                  slidesPerView={1}
-                  navigation={{
-                    prevEl: '.swiper-button-prev-custom',
-                    nextEl: '.swiper-button-next-custom',
-                  }}
-                  pagination={{ 
-                    clickable: true,
-                    bulletClass: 'swiper-pagination-bullet !bg-gray-400 !opacity-50',
-                    bulletActiveClass: 'swiper-pagination-bullet-active !bg-gradient-to-r !from-rose-600 !via-indigo-500 !to-sky-500 !opacity-100'
-                  }}
-                  autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
-                  }}
-                  breakpoints={{
-                    640: {
-                      slidesPerView: 2,
-                    },
-                    1024: {
-                      slidesPerView: 3,
-                    },
-                  }}
-                  className="!pb-12"
-                >
-                  <SwiperSlide>
-                    <Link href="/projects/planit">
-                      <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                      dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                      cursor-pointer h-full">
-                        <CardContent className="p-4 h-[280px] flex flex-col">
-                          <div className="h-40 mb-4 overflow-hidden rounded-lg">
-                            <Image src={planit} alt="Planit" className="w-full h-full object-cover"/>
-                          </div>
-                          <div className="flex items-center justify-between flex-1">
-                            <div className="flex-1 min-w-0 pr-2">
-                              <h3 className="font-medium truncate">Planit</h3>
-                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Ready to plan your trip?</p>
-                            </div>
-                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </SwiperSlide>
-                  
-                  <SwiperSlide>
-                    <Link href="/projects/musawarah">
-                      <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                      dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                      cursor-pointer h-full">
-                        <CardContent className="p-4 h-[280px] flex flex-col">
-                          <div className="h-40 mb-4 overflow-hidden rounded-lg">
-                            <Image src={musawarah} alt="Musawarah" className="w-full h-full object-cover"/>
-                          </div>
-                          <div className="flex items-center justify-between flex-1">
-                            <div className="flex-1 min-w-0 pr-2">
-                              <h3 className="font-medium truncate">Musawarah</h3>
-                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Autodebit donation app</p>
-                            </div>
-                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </SwiperSlide>
-                  
-                  <SwiperSlide>
-                    <Link href="/projects/shiny-app">
-                      <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 
-                      dark:border-zinc-800 transition-transform duration-300 hover:scale-105
-                      cursor-pointer h-full">
-                        <CardContent className="p-4 h-[280px] flex flex-col">
-                          <div className="h-40 mb-4 overflow-hidden rounded-lg">
-                            <Image src={shinyapp} alt="Radithyama shiny app" className="w-full h-full object-cover"/>
-                          </div>
-                          <div className="flex items-center justify-between flex-1">
-                            <div className="flex-1 min-w-0 pr-2">
-                              <h3 className="font-medium truncate">USA Electric Vehicle Dashboard</h3>
-                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Shiny App Data Visualisation Dashboard Using R</p>
-                            </div>
-                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </SwiperSlide>
-                  
-                  <SwiperSlide>
-                    <Link href="/projects/coming-soon">
-                      <Card className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-900 dark:to-zinc-800 border-gray-200 
-                      dark:border-zinc-700 transition-transform duration-300 hover:scale-105
-                      cursor-pointer h-full relative overflow-hidden">
-                        <CardContent className="p-4 h-[280px] flex flex-col relative z-10">
-                          <div className="h-40 mb-4 bg-gradient-to-br from-rose-100 via-indigo-100 to-sky-100 dark:from-rose-900/20 dark:via-indigo-900/20 dark:to-sky-900/20 rounded-lg flex items-center justify-center relative overflow-hidden">
-                            <Sparkles className="w-16 h-16 text-gray-400 dark:text-gray-600" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 rounded-lg animate-pulse"></div>
-                          </div>
-                          <div className="flex items-center justify-between flex-1">
-                            <div className="flex-1 min-w-0 pr-2">
-                              <h3 className="font-medium bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent truncate">Coming Soon...</h3>
-                              <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">Something amazing is in development</p>
-                            </div>
-                            <Button variant="ghost" size="icon" className="flex-shrink-0">➜</Button>
-                          </div>
-                        </CardContent>
-                        <div className="absolute top-2 right-2 z-20">
-                          <div className="w-3 h-3 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 rounded-full animate-pulse"></div>
-                        </div>
-                      </Card>
-                    </Link>
-                  </SwiperSlide>
-                </Swiper>
+              <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
+                Explore my projects that showcase my skills in software development and cybersecurity.
+              </p>
+            </motion.div>
 
-                {/* Custom Navigation Buttons */}
-                <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white dark:bg-zinc-800 rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 transition-colors -translate-x-1/2">
-                  <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                </button>
-                <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-white dark:bg-zinc-800 rounded-full shadow-lg flex items-center justify-center border border-gray-200 dark:border-zinc-700 hover:bg-gray-50 dark:hover:bg-zinc-700 transition-colors translate-x-1/2">
-                  <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                </button>
+            {/* PROJECTS GRID */}
+            <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.5}}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {/* PROJECT ITEM */}
+              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                <Image src={planit} alt="Planit Webpage" className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <h3 className="text-white text-lg font-semibold mb-2">Planit Webpage</h3>
+                  <p className="text-gray-300 text-sm text-center mb-4">
+                    A responsive webpage for Planit, showcasing modern web development techniques.
+                  </p>
+                  <Link href="/projects/planit" className="text-white text-sm font-medium underline">
+                    View Details
+                  </Link>
+                </div>
               </div>
 
-              <p className="text-gray-500">©️ 2025 Radithya Mirza Aribowo</p>
-            </motion.section>
+              {/* PROJECT ITEM */}
+              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                <Image src={musawarah} alt="Musawarah Webpage" className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <h3 className="text-white text-lg font-semibold mb-2">Musawarah Webpage</h3>
+                  <p className="text-gray-300 text-sm text-center mb-4">
+                    A dynamic webpage for Musawarah, built with a focus on user experience and performance.
+                  </p>
+                  <Link href="/projects/musawarah" className="text-white text-sm font-medium underline">
+                    View Details
+                  </Link>
+                </div>
+              </div>
+
+              {/* PROJECT ITEM */}
+              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer">
+                <Image src={shinyapp} alt="Shiny App" className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <h3 className="text-white text-lg font-semibold mb-2">Shiny App</h3>
+                  <p className="text-gray-300 text-sm text-center mb-4">
+                    An interactive web application built with Shiny, demonstrating data visualization and analysis capabilities.
+                  </p>
+                  <Link href="/projects/shiny-app" className="text-white text-sm font-medium underline">
+                    View Details
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
           </section>
         </main>
       </div>
