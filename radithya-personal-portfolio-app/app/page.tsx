@@ -11,15 +11,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaMedium, FaReact, FaMobileAlt, FaAws, FaGoogle, FaDocker, FaShieldAlt } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from "react";
 
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+// Removed unused imports: Swiper, SwiperSlide, Navigation, Pagination, Autoplay, Sparkles, ChevronLeft, ChevronRight
 
 
 
