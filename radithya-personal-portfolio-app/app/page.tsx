@@ -229,6 +229,86 @@ export default function Home() {
             </div>
             </motion.section>
 
+            {/* EXPERIENCES */}
+            <motion.section
+              initial={{opacity: 0, y: 100}}
+              animate={{opacity:1, y: 0}}
+              transition={{duration: 0.5}}
+              className="space-y-8"
+            >
+              <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600
+                via-indigo-500 to-sky-500 bg-clip-text text-transparent
+                inline-block">Experiences</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                {/* Web Development */}
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
+                  <CardContent className="flex flex-col items-center">
+                    <span className="text-4xl mb-2 text-indigo-500">
+                      {/* FaReact for web dev */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#6366F1"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="18" fontFamily="Arial" dy=".3em">{"</>"}</text></svg>
+                    </span>
+                    <h3 className="font-medium">Web Development</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">4+ years</p>
+                  </CardContent>
+                </Card>
+                {/* Mobile Development */}
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
+                  <CardContent className="flex flex-col items-center">
+                    <span className="text-4xl mb-2 text-rose-500">
+                      {/* Mobile icon */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="4" fill="#F43F5E"/><rect x="16" y="30" width="8" height="2" rx="1" fill="white"/></svg>
+                    </span>
+                    <h3 className="font-medium">Mobile Development</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
+                  </CardContent>
+                </Card>
+                {/* AWS */}
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
+                  <CardContent className="flex flex-col items-center">
+                    <span className="text-4xl mb-2 text-yellow-500">
+                      {/* AWS icon */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#FBBF24"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="16" fontFamily="Arial" dy=".3em">AWS</text></svg>
+                    </span>
+                    <h3 className="font-medium">AWS</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
+                  </CardContent>
+                </Card>
+                {/* GCP */}
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
+                  <CardContent className="flex flex-col items-center">
+                    <span className="text-4xl mb-2 text-sky-500">
+                      {/* GCP icon */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#0EA5E9"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="16" fontFamily="Arial" dy=".3em">GCP</text></svg>
+                    </span>
+                    <h3 className="font-medium">Google Cloud</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
+                  </CardContent>
+                </Card>
+                {/* DevOps / Docker */}
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
+                  <CardContent className="flex flex-col items-center">
+                    <span className="text-4xl mb-2 text-blue-500">
+                      {/* Docker icon */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="#3B82F6"/><text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="14" fontFamily="Arial" dy=".3em">🐳</text></svg>
+                    </span>
+                    <h3 className="font-medium">DevOps / Docker</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">2+ years</p>
+                  </CardContent>
+                </Card>
+                {/* Cybersecurity */}
+                <Card className="bg-gray-50 dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 flex flex-col items-center p-4">
+                  <CardContent className="flex flex-col items-center">
+                    <span className="text-4xl mb-2 text-green-500">
+                      {/* Shield icon */}
+                      <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 6L32 10V18C32 27 20 34 20 34C20 34 8 27 8 18V10L20 6Z" fill="#22C55E"/><text x="50%" y="60%" textAnchor="middle" fill="white" fontSize="14" fontFamily="Arial" dy=".3em">🔒</text></svg>
+                    </span>
+                    <h3 className="font-medium">Cybersecurity</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">1+ years</p>
+                  </CardContent>
+                </Card>
+              </div>
+            </motion.section>
+
             {/* PROJECTS */}
 
             <motion.section
