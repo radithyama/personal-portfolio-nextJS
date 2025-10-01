@@ -56,6 +56,45 @@ export default function Home() {
     },
   };
 
+  // Portfolio slider state
+  const portfolioItems = [
+    {
+      image: planit,
+      alt: "Planit",
+      title: "Planit",
+      titleColor: "text-rose-600 dark:text-rose-400",
+      description: "A responsive webpage for Planit, showcasing modern web development techniques.",
+      link: "/projects/planit",
+    },
+    {
+      image: musawarah,
+      alt: "Musawarah",
+      title: "Musawarah",
+      titleColor: "text-indigo-600 dark:text-indigo-400",
+      description: "A dynamic donation webpage for Musawarah, built with a focus on user experience and performance.",
+      link: "/projects/musawarah",
+    },
+    {
+      image: shinyapp,
+      alt: "USA EV Dashboard",
+      title: "USA EV Dashboard",
+      titleColor: "text-sky-600 dark:text-sky-400",
+      description: "An interactive web application built with Shiny, demonstrating data visualization and analysis capabilities.",
+      link: "/projects/shiny-app",
+    },
+  ];
+
+  const [portfolioIndex, setPortfolioIndex] = useState(0);
+  const [direction, setDirection] = useState(0); // -1 for prev, 1 for next
+  const handlePrev = () => {
+    setDirection(-1);
+    setPortfolioIndex((prev) => (prev === 0 ? portfolioItems.length - 1 : prev - 1));
+  };
+  const handleNext = () => {
+    setDirection(1);
+    setPortfolioIndex((prev) => (prev === portfolioItems.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <div className="min-h-screen bg-white 
     dark:bg-black text-black dark:text-white transition-colors duration-300">
@@ -395,66 +434,84 @@ export default function Home() {
           {/* PORTFOLIO */}
           <section className="space-y-10">
             <motion.div
-            initial={{opacity: 0, y: 100}}
-            animate={{opacity:1, y: 0}}
-            transition={{duration: 0.5}}
-            className="space-y-3">
-              <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600
-              via-indigo-500 to-sky-500 bg-clip-text text-transparent
-              inline-block">Portfolio</h2>
-
+              initial={{opacity: 0, y: 100}}
+              animate={{opacity:1, y: 0}}
+              transition={{duration: 0.5}}
+              className="space-y-3"
+            >
+              <h2 className="text-3xl font-semibold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Portfolio</h2>
               <p className="text-gray-600 dark:text-gray-400 max-w-2xl">
                 Explore my projects that showcase my skills in software development and cybersecurity.
               </p>
             </motion.div>
 
-            {/* PROJECTS GRID */}
+            {/* PORTFOLIO SLIDER */}
             <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            transition={{duration: 0.5}}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+              initial={{opacity: 0}}
+              animate={{opacity: 1}}
+              transition={{duration: 0.5}}
+              className="flex flex-col items-center gap-6"
             >
-              {/* PROJECT ITEM */}
-              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
-                <Image src={planit} alt="Planit" fill className="object-cover transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
-                <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <h3 className="text-white text-lg font-semibold mb-2">Planit</h3>
-                  <p className="text-gray-300 text-sm text-center mb-4">
-                    A responsive webpage for Planit, showcasing modern web development techniques.
-                  </p>
-                  <Link href="/projects/planit" className="text-white text-sm font-medium underline">
-                    View Details
-                  </Link>
-                </div>
+              <div className="flex items-center w-full justify-center gap-4">
+                {/* Prev Arrow Outside */}
+                <button
+                  onClick={handlePrev}
+                  className="bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 rounded-full p-3 shadow hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors flex-shrink-0"
+                  aria-label="Previous"
+                  style={{zIndex: 2}}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-7 h-7 text-gray-700 dark:text-gray-300">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                {/* Slider Item with Animation */}
+                <motion.div
+                  key={portfolioIndex}
+                  initial={{ x: direction === 1 ? 100 : -100, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: direction === 1 ? -100 : 100, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  className="w-full"
+                >
+                  <div className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer h-[22rem] w-full max-w-3xl mx-auto">
+                    {/* Only show image by default */}
+                    <Image src={portfolioItems[portfolioIndex].image} alt={portfolioItems[portfolioIndex].alt} fill className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
+                    {/* Overlay with title/desc on hover */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/70 dark:bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
+                      <div className="text-center px-6">
+                        <h3 className={`text-2xl font-semibold mb-2 ${portfolioItems[portfolioIndex].titleColor}`}>{portfolioItems[portfolioIndex].title}</h3>
+                        <p className="text-gray-200 dark:text-gray-300 mb-4 text-base">
+                          {portfolioItems[portfolioIndex].description}
+                        </p>
+                        <Link href={portfolioItems[portfolioIndex].link} className="text-white font-medium underline">
+                          View Details
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+                {/* Next Arrow Outside */}
+                <button
+                  onClick={handleNext}
+                  className="bg-white dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700 rounded-full p-3 shadow hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors flex-shrink-0"
+                  aria-label="Next"
+                  style={{zIndex: 2}}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-7 h-7 text-gray-700 dark:text-gray-300">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
               </div>
-
-              {/* PROJECT ITEM */}
-              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
-                <Image src={musawarah} alt="Musawarah" fill className="object-cover transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
-                <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <h3 className="text-white text-lg font-semibold mb-2">Musawarah</h3>
-                  <p className="text-gray-300 text-sm text-center mb-4">
-                    A dynamic donation webpage for Musawarah, built with a focus on user experience and performance.
-                  </p>
-                  <Link href="/projects/musawarah" className="text-white text-sm font-medium underline">
-                    View Details
-                  </Link>
-                </div>
-              </div>
-
-              {/* PROJECT ITEM */}
-              <div className="group relative rounded-lg overflow-hidden shadow-lg cursor-pointer h-80">
-                <Image src={shinyapp} alt="USA EV Dashboard" fill className="object-cover transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
-                <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <h3 className="text-white text-m font-semibold mb-2">USA EV Dashboard</h3>
-                  <p className="text-gray-300 text-sm text-center mb-4">
-                    An interactive web application built with Shiny, demonstrating data visualization and analysis capabilities.
-                  </p>
-                  <Link href="/projects/shiny-app" className="text-white text-sm font-medium underline">
-                    View Details
-                  </Link>
-                </div>
+              {/* Slider indicators */}
+              <div className="flex gap-2 mt-2">
+                {portfolioItems.map((_, idx) => (
+                  <button
+                    key={idx}
+                    className={`w-3 h-3 rounded-full ${portfolioIndex === idx ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-zinc-700'} transition-colors`}
+                    onClick={() => { setDirection(idx > portfolioIndex ? 1 : -1); setPortfolioIndex(idx); }}
+                    aria-label={`Go to project ${idx + 1}`}
+                  />
+                ))}
               </div>
             </motion.div>
           </section>
