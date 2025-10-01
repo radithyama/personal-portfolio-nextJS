@@ -3,6 +3,7 @@
 import Image from "@/node_modules/next/image";
 import pp from "../public/portfolio-profile-pic.jpeg";
 import planit from "../public/planit-webpage.png"
+import snakeGame from "../public/snake-game.png"
 import musawarah from "../public/musawarah-webpage.png"
 import shinyapp from "../public/shiny-app.png"
 import ThemeToggle from "@/components/ui/theme-toggle";
@@ -81,6 +82,14 @@ export default function Home() {
       titleColor: "text-sky-600 dark:text-sky-400",
       description: "An interactive web application built with Shiny, demonstrating data visualization and analysis capabilities.",
       link: "/projects/shiny-app",
+    },
+    {
+      image: snakeGame, // Reuse planit image for Snake Game, or replace with a snake image if available
+      alt: "Snake Game",
+      title: "Snake Game",
+      titleColor: "text-green-600 dark:text-green-400",
+      description: "A simple Snake Game project created to train code logic and algorithm skills.",
+      link: "/projects/snake-game",
     },
   ];
 
