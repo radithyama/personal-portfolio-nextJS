@@ -96,9 +96,8 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white 
-    dark:bg-black text-black dark:text-white transition-colors duration-300">
-      <div className="mx-auto max-w-xl px-4 py-20">
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+      <div className="mx-auto max-w-4xl px-2 py-16">
         <div className="flex items-center justify-between mb-12">
 
           {/* PROFILE PICTURE */}
@@ -473,9 +472,11 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   className="w-full"
                 >
-                  <div className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer h-[22rem] w-full max-w-3xl mx-auto">
-                    {/* Only show image by default */}
-                    <Image src={portfolioItems[portfolioIndex].image} alt={portfolioItems[portfolioIndex].alt} fill className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
+                  <div className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer w-full max-w-2xl mx-auto">
+                    {/* Show image at natural aspect ratio, responsive */}
+                    <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+                      <Image src={portfolioItems[portfolioIndex].image} alt={portfolioItems[portfolioIndex].alt} fill className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
+                    </div>
                     {/* Overlay with title/desc on hover */}
                     <div className="absolute inset-0 flex items-center justify-center bg-black/70 dark:bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                       <div className="text-center px-6">
