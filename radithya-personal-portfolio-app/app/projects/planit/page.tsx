@@ -94,10 +94,6 @@ export default function PlanitDetail() {
                 Built with modern web technologies, Planit offers a seamless user experience with responsive design that works across all devices. 
                 Users can easily add destinations, plan activities, set budgets, and share their itineraries with travel companions.
               </p>
-              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                The application features real-time collaboration, offline capability, and integration with popular travel services to provide 
-                a complete travel planning solution.
-              </p>
             </div>
 
             <div>
