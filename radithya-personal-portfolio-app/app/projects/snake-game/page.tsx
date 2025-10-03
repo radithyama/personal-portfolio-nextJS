@@ -80,7 +80,7 @@ export default function SnakeGameDetail() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 mb-12"
         >
           {/* Main Description */}
           <div className="lg:col-span-2 space-y-6">

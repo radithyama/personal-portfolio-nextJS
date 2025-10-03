@@ -139,10 +139,7 @@ export default function Home() {
             animate={{opacity:1, x: 0}}
             transition={{duration: 0.5}}
             className= "space-y-1">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-rose-600
-              via-indigo-500 to-sky-500 bg-clip-text text-transparent
-              inline-block">Radithya Mirza</h1>
-              <p className="text-gray-600 dark:text-gray-400">Software Engineer & Cybersecurity Enthusiast</p>
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Radithya Mirza</h1>
               <p className="text-gray-600 dark:text-gray-400">Jakarta, Indonesia</p>
             </motion.div>
 
@@ -460,7 +457,7 @@ export default function Home() {
               transition={{duration: 0.5}}
               className="flex flex-col items-center gap-6"
             >
-              <div className="flex items-center w-full justify-center gap-4">
+                    <div className="flex items-center w-full justify-center gap-4 aspect-video">
                 {/* Prev Arrow Outside */}
                 <button
                   onClick={handlePrev}
@@ -526,6 +523,14 @@ export default function Home() {
             </motion.div>
           </section>
         </main>
+        {/* CONTACT SECTION */}
+        <section className="mt-16">
+          <div className="bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 rounded-xl p-8 text-center border border-gray-200 dark:border-zinc-800">
+            <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Want to collaborate?</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">I'm always open to new opportunities, projects, and collaborations. Feel free to reach out!</p>
+            <a href="mailto:radithyamirza00@gmail.com" className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 text-white font-semibold shadow hover:scale-105 transition-transform">Email Me</a>
+          </div>
+        </section>
       </div>
     </div>
   );
