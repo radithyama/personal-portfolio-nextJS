@@ -525,10 +525,31 @@ export default function Home() {
         </main>
         {/* CONTACT SECTION */}
         <section className="mt-16">
-          <div className="bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 rounded-xl p-8 text-center border border-gray-200 dark:border-zinc-800">
-            <h2 className="text-2xl font-bold mb-2 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Want to collaborate?</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">I&apos;m always open to new opportunities, projects, and collaborations. Feel free to reach out!</p>
-            <a href="mailto:radithyamirza00@gmail.com" className="inline-block px-6 py-3 rounded-full bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 text-white font-semibold shadow hover:scale-105 transition-transform">Email Me</a>
+          <div className="bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 rounded-xl p-6 sm:p-8 text-center border border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Want to collaborate?</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-4 text-base sm:text-lg">I'm always open to new opportunities, projects, and collaborations. Feel free to reach out!</p>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="mailto:radithyamirza00@gmail.com"
+                className="group inline-flex items-center px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              >
+                <svg
+                  className="w-5 h-5 mr-2 group-hover:animate-bounce"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                Email Me
+              </a>
+            </div>
           </div>
         </section>
       </div>
