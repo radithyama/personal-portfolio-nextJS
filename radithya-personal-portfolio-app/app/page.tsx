@@ -553,7 +553,7 @@ export default function Home() {
         <section className="mt-16">
           <div className="bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 rounded-xl p-6 sm:p-8 text-center border border-gray-200 dark:border-zinc-800 flex flex-col items-center justify-center">
             <h2 className="text-xl sm:text-2xl font-bold mb-2 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent inline-block">Want to collaborate?</h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-4 text-base sm:text-lg">I'm always open to new opportunities, projects, and collaborations. Feel free to reach out!</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-4 text-base sm:text-lg">I&apos;m always open to new opportunities, projects, and collaborations. Feel free to reach out!</p>
             <div className="flex flex-col sm:flex-row items-center gap-4">
               <a
                 href="mailto:radithyamirza00@gmail.com"
