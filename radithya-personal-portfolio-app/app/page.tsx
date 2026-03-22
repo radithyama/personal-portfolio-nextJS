@@ -95,12 +95,17 @@ export default function Home() {
 
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for prev, 1 for next
+  const [mobileOverlayOpen, setMobileOverlayOpen] = useState(false);
+
   const handlePrev = () => {
     setDirection(-1);
+    setMobileOverlayOpen(false);
     setPortfolioIndex((prev) => (prev === 0 ? portfolioItems.length - 1 : prev - 1));
   };
+
   const handleNext = () => {
     setDirection(1);
+    setMobileOverlayOpen(false);
     setPortfolioIndex((prev) => (prev === portfolioItems.length - 1 ? 0 : prev + 1));
   };
 
@@ -478,13 +483,18 @@ export default function Home() {
                   transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   className="w-full"
                 >
-                  <div className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer w-full max-w-2xl mx-auto">
+                  <div
+                    className="group relative rounded-xl overflow-hidden shadow-lg cursor-pointer w-full max-w-2xl mx-auto"
+                    onClick={() => setMobileOverlayOpen((prev) => !prev)}
+                    onMouseEnter={() => setMobileOverlayOpen(true)}
+                    onMouseLeave={() => setMobileOverlayOpen(false)}
+                  >
                     {/* Show image at natural aspect ratio, responsive */}
                     <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
                       <Image src={portfolioItems[portfolioIndex].image} alt={portfolioItems[portfolioIndex].alt} fill className="object-contain w-full h-full transition-transform duration-300 group-hover:scale-105" style={{objectPosition: 'center'}} />
                     </div>
-                    {/* Overlay with title/desc on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/70 dark:bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
+                    {/* Desktop overlay with details */}
+                    <div className="absolute inset-0 hidden md:flex items-center justify-center bg-black/70 dark:bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
                       <div className="text-center px-6">
                         <h3 className={`text-2xl font-semibold mb-2 ${portfolioItems[portfolioIndex].titleColor}`}>{portfolioItems[portfolioIndex].title}</h3>
                         <p className="text-gray-200 dark:text-gray-300 mb-4 text-base">
@@ -494,6 +504,18 @@ export default function Home() {
                           View Details
                         </Link>
                       </div>
+                    </div>
+                    {/* Mobile overlay with a single CTA */}
+                    <div
+                      className={`absolute inset-0 md:hidden flex items-center justify-center bg-black/55 rounded-xl transition-opacity duration-300 ${mobileOverlayOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+                    >
+                      <Link
+                        href={portfolioItems[portfolioIndex].link}
+                        onClick={(event) => event.stopPropagation()}
+                        className="px-5 py-2 rounded-full bg-white text-black font-semibold"
+                      >
+                        View More
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
@@ -515,7 +537,11 @@ export default function Home() {
                   <button
                     key={idx}
                     className={`w-3 h-3 rounded-full ${portfolioIndex === idx ? 'bg-indigo-500' : 'bg-gray-300 dark:bg-zinc-700'} transition-colors`}
-                    onClick={() => { setDirection(idx > portfolioIndex ? 1 : -1); setPortfolioIndex(idx); }}
+                    onClick={() => {
+                      setDirection(idx > portfolioIndex ? 1 : -1);
+                      setMobileOverlayOpen(false);
+                      setPortfolioIndex(idx);
+                    }}
                     aria-label={`Go to project ${idx + 1}`}
                   />
                 ))}
