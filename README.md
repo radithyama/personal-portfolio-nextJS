@@ -13,11 +13,16 @@ Radithya's personal portfolio website, built with Next.js 15 (App Router), React
 │   ├── portfolio.service         # systemd unit running `next start` on 127.0.0.1:3000
 │   └── nginx.conf                # HTTPS reverse proxy; HTTP redirects to https://radithyama.site
 ├── src/
-│   ├── app/                      # Routes: home page + /projects/<slug>
-│   ├── assets/images/            # Profile picture and project screenshots (static imports)
-│   ├── components/               # App components (theme toggle)
+│   ├── app/                      # Routes: home page + /projects/[slug] (statically generated)
+│   ├── assets/images/            # Portrait and project screenshots (static imports)
+│   ├── components/
+│   │   ├── sections/             # Home page sections: hero, about, experience, expertise, projects, contact
+│   │   ├── project-detail.tsx    # Shared case-study layout for every project page
+│   │   ├── site-header.tsx       # Sticky nav with active-section highlight and scroll progress
 │   │   └── ui/                   # shadcn/ui primitives
-│   ├── data/portfolio.ts         # Skills and portfolio project content
+│   ├── data/
+│   │   ├── profile.ts            # Bio, experience, education, expertise, socials
+│   │   └── projects.ts           # Project content; add an entry here to publish a new project page
 │   └── lib/utils.ts
 ├── vercel.json                   # Disables Vercel Git deployments (hosting is the VM)
 └── package.json, next.config.ts, tailwind.config.ts, tsconfig.json, ...
