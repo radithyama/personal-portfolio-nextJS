@@ -1,0 +1,41 @@
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Lint & build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run lint
+      - run: npm run build
+
+  deploy:
+    name: Deploy to VM
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Configure SSH
+        run: |
+          install -d -m 700 ~/.ssh
+          echo "${{ secrets.VM_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "${{ secrets.VM_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Deploy
+        run: ssh -i ~/.ssh/id_ed25519 "${{ secrets.VM_USER }}@${{ secrets.VM_HOST }}" 'bash /opt/portfolio/deploy/deploy.sh main'

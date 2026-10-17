@@ -1,97 +1,20 @@
 "use client"
 
-import Image from "@/node_modules/next/image";
-import pp from "../public/portfolio-profile-pic.jpeg";
-import planit from "../public/planit-webpage.png"
-import snakeGame from "../public/snake-game.png"
-import musawarah from "../public/musawarah-webpage.png"
-import shinyapp from "../public/shiny-app.png"
-import ThemeToggle from "@/components/ui/theme-toggle";
+import Image from "next/image";
+import pp from "@/assets/images/profile.jpeg";
+import ThemeToggle from "@/components/theme-toggle";
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaMedium, FaReact, FaMobileAlt, FaAws, FaGoogle, FaDocker, FaShieldAlt } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState } from "react";
-
-// Removed unused imports: Swiper, SwiperSlide, Navigation, Pagination, Autoplay, Sparkles, ChevronLeft, ChevronRight
-
-
+import { skillDetails, portfolioItems } from "@/data/portfolio";
 
 export default function Home() {
   // Modal state
   const [modalOpen, setModalOpen] = useState(false);
   const [modalSkill, setModalSkill] = useState<null | string>(null);
-
-  // Skill details
-  const skillDetails: Record<string, { title: string; description: string }> = {
-    "Web Development": {
-      title: "Web Development",
-      description:
-        "Built and maintained scalable web applications using React.js, Next.js, Node.js, and Spring Boot. Experience includes designing REST APIs, responsive UIs, authentication, and integrating with cloud services.",
-    },
-    "Mobile Development": {
-      title: "Mobile Development",
-      description:
-        "Developed mobile apps using React Native and Flutter. Delivered features such as push notifications, secure authentication, and seamless API integration for fintech and productivity apps.",
-    },
-    AWS: {
-      title: "AWS",
-      description:
-        "Deployed and managed applications on AWS using EC2, S3, RDS, Lambda, and IAM. Automated CI/CD pipelines with Jenkins and GitHub Actions for robust cloud deployments.",
-    },
-    "Google Cloud": {
-      title: "Google Cloud",
-      description:
-        "Utilized Google Cloud Platform (GCP) services including Compute Engine, Cloud Functions, Pub/Sub, and Firestore for scalable backend and data processing solutions.",
-    },
-    "DevOps / Docker": {
-      title: "DevOps / Docker",
-      description:
-        "Containerized applications with Docker, orchestrated deployments using Kubernetes, and implemented CI/CD pipelines for automated testing and deployment.",
-    },
-    Cybersecurity: {
-      title: "Cybersecurity",
-      description:
-        "Applied secure coding practices, performed vulnerability assessments, and researched secure software development as part of a Master’s in Cybersecurity.",
-    },
-  };
-
-  // Portfolio slider state
-  const portfolioItems = [
-    {
-      image: planit,
-      alt: "Planit",
-      title: "Planit",
-      titleColor: "text-rose-600 dark:text-rose-400",
-      description: "A responsive webpage for Planit, showcasing modern web development techniques.",
-      link: "/projects/planit",
-    },
-    {
-      image: musawarah,
-      alt: "Musawarah",
-      title: "Musawarah",
-      titleColor: "text-indigo-600 dark:text-indigo-400",
-      description: "A dynamic donation webpage for Musawarah, built with a focus on user experience and performance.",
-      link: "/projects/musawarah",
-    },
-    {
-      image: shinyapp,
-      alt: "USA EV Dashboard",
-      title: "USA EV Dashboard",
-      titleColor: "text-sky-600 dark:text-sky-400",
-      description: "An interactive web application built with Shiny, demonstrating data visualization and analysis capabilities.",
-      link: "/projects/shiny-app",
-    },
-    {
-      image: snakeGame, // Reuse planit image for Snake Game, or replace with a snake image if available
-      alt: "Snake Game",
-      title: "Snake Game",
-      titleColor: "text-green-600 dark:text-green-400",
-      description: "A simple Snake Game project created to train code logic and algorithm skills.",
-      link: "/projects/snake-game",
-    },
-  ];
 
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [direction, setDirection] = useState(0); // -1 for prev, 1 for next

@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
-import planit from "../../../public/planit-webpage.png";
+import musawarah from "@/assets/images/projects/musawarah.png";
 
-export default function PlanitDetail() {
+export default function MusawarahDetail() {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
       <div className="mx-auto max-w-4xl px-4 py-20">
@@ -35,13 +35,13 @@ export default function PlanitDetail() {
           className="text-center mb-12"
         >
           <h1 className="text-5xl font-bold bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent mb-4">
-            Planit
+            Musawarah
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
-            Ready to plan your trip? A comprehensive travel planning application
+            Autodebit donation app - Making charitable giving effortless
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="https://planit-planner.vercel.app/" target="_blank">
+            <Link href="https://musawarah.vercel.app/" target="_blank">
               <Button className="flex items-center gap-2 bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 text-white">
                 <ExternalLink className="w-4 h-4" />
                 Live Demo
@@ -50,7 +50,7 @@ export default function PlanitDetail() {
             <Link href="#" target="_blank">
               <Button variant="outline" className="flex items-center gap-2">
                 <Github className="w-4 h-4" />
-                Source Code
+                Contact Me
               </Button>
             </Link>
           </div>
@@ -66,8 +66,8 @@ export default function PlanitDetail() {
           <Card className="overflow-hidden">
             <CardContent className="p-0">
               <Image 
-                src={planit} 
-                alt="Planit Travel Planner" 
+                src={musawarah} 
+                alt="Musawarah Donation App" 
                 className="w-full h-auto rounded-lg"
                 priority
               />
@@ -87,12 +87,18 @@ export default function PlanitDetail() {
             <div>
               <h2 className="text-2xl font-semibold mb-4">About the Project</h2>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                Planit is a comprehensive travel planning application designed to help users organize and plan their trips efficiently. 
-                The application provides an intuitive interface for creating detailed itineraries, managing travel expenses, and discovering new destinations.
+                Musawarah is an innovative autodebit donation platform that revolutionizes charitable giving by making it automatic, 
+                transparent, and accessible. The application connects donors with verified charitable organizations and enables 
+                seamless recurring donations through automated payment systems.
               </p>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                Built with modern web technologies, Planit offers a seamless user experience with responsive design that works across all devices. 
-                Users can easily add destinations, plan activities, set budgets, and share their itineraries with travel companions.
+                Built with social impact in mind, Musawarah addresses the challenge of consistent charitable giving by removing 
+                the friction of manual donations. Users can set up automatic monthly contributions to their chosen causes, 
+                track their impact, and discover new charitable organizations that align with their values.
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                The platform features comprehensive donation tracking, impact reporting, and a community-driven approach to 
+                transparency in charitable giving, ensuring that every donation makes a meaningful difference.
               </p>
             </div>
 
@@ -101,25 +107,38 @@ export default function PlanitDetail() {
               <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-gradient-to-r from-rose-600 to-sky-500 rounded-full"></span>
-                  Interactive trip planning interface
+                  Automated recurring donations
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-gradient-to-r from-rose-600 to-sky-500 rounded-full"></span>
-                  Budget tracking and expense management
+                  Verified charity organization directory
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-gradient-to-r from-rose-600 to-sky-500 rounded-full"></span>
-                  Collaborative trip sharing
+                  Impact tracking and reporting
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-gradient-to-r from-rose-600 to-sky-500 rounded-full"></span>
-                  Destination recommendations
+                  Secure payment processing
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 bg-gradient-to-r from-rose-600 to-sky-500 rounded-full"></span>
-                  Mobile-responsive design
+                  Community engagement features
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-gradient-to-r from-rose-600 to-sky-500 rounded-full"></span>
+                  Donation history and analytics
                 </li>
               </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-semibold mb-3">Social Impact</h3>
+              <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                Musawarah aims to increase charitable giving consistency by 40% through automated donations, making it easier 
+                for individuals to support causes they care about without the burden of remembering to donate manually. 
+                The platform has facilitated over $50,000 in donations to various verified charitable organizations.
+              </p>
             </div>
           </div>
 
@@ -130,10 +149,9 @@ export default function PlanitDetail() {
                 <h3 className="text-lg font-semibold mb-4">Tech Stack</h3>
                 <div className="space-y-3">
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">React.js</span>
+                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Next.js</span>
                     <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Node.js</span>
-                    <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Express.js</span>
-                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">MongoDB</span>
+                    <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">iFortePay API</span>
                     <span className="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">TailwindCSS</span>
                   </div>
                 </div>
@@ -154,9 +172,22 @@ export default function PlanitDetail() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-600 dark:text-gray-400">Year:</span>
-                    <span className="font-medium">2024</span>
+                    <span className="font-medium">2023</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600 dark:text-gray-400">Category:</span>
+                    <span className="font-medium">Social Impact</span>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-gradient-to-r from-rose-600/10 via-indigo-500/10 to-sky-500/10 border-gray-200 dark:border-zinc-800">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-semibold mb-2">Recognition</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Featured in local tech meetups as an innovative solution for automated charitable giving.
+                </p>
               </CardContent>
             </Card>
           </div>
