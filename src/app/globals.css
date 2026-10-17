@@ -70,16 +70,18 @@
     @apply bg-white text-zinc-950 dark:bg-black dark:text-zinc-50;
   }
   ::selection {
-    @apply bg-indigo-500/25;
+    @apply bg-cyan-500/25;
   }
 }
 
 @layer components {
+  /* Brand palette: emerald (security) -> cyan -> blue (banking/trust) */
   .text-gradient {
-    @apply bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-emerald-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent dark:from-emerald-400 dark:via-cyan-400 dark:to-blue-400;
   }
+  /* Deeper stops so white text on buttons keeps ~5:1 contrast */
   .bg-gradient-brand {
-    @apply bg-gradient-to-r from-rose-600 via-indigo-500 to-sky-500;
+    @apply bg-gradient-to-r from-teal-700 via-cyan-700 to-blue-600;
   }
   /* Faint engineering grid used behind the hero */
   .bg-grid {

@@ -31,7 +31,7 @@ export default function ProjectDetail({
   return (
     <article className="relative isolate">
       <div aria-hidden className="bg-grid absolute inset-x-0 top-0 -z-10 h-[32rem] [mask-image:radial-gradient(ellipse_at_top,black_25%,transparent_70%)]" />
-      <div aria-hidden className="absolute -top-24 left-1/2 -z-10 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-rose-500/15 via-indigo-500/15 to-sky-500/15 blur-3xl" />
+      <div aria-hidden className="absolute -top-24 left-1/2 -z-10 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-500/15 via-cyan-500/15 to-blue-500/15 blur-3xl" />
 
       <div className="mx-auto max-w-5xl px-4 pb-20 pt-8 sm:px-6">
         <Link href="/#projects"
@@ -42,14 +42,14 @@ export default function ProjectDetail({
 
         {/* Header */}
         <Reveal className="mx-auto mb-12 max-w-3xl space-y-5 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400">
             {p.category} · {p.year}
           </p>
           <h1 className="text-gradient pb-1 text-4xl font-bold tracking-tight sm:text-5xl">{p.title}</h1>
           <p className="text-lg text-zinc-600 sm:text-xl dark:text-zinc-400">{p.tagline}</p>
           <div className="flex flex-wrap justify-center gap-3 pt-2">
             <a href={p.live.href} target="_blank" rel="noopener noreferrer"
-              className="bg-gradient-brand inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:scale-[1.03]">
+              className="bg-gradient-brand inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition-transform hover:scale-[1.03]">
               <ExternalLink className="h-4 w-4" />
               {p.live.label}
             </a>
@@ -71,7 +71,7 @@ export default function ProjectDetail({
 
         {/* Screenshot in a browser frame */}
         <Reveal delay={0.1} className="mb-16">
-          <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-2xl shadow-indigo-500/10 dark:border-zinc-800 dark:bg-zinc-900">
+          <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 shadow-2xl shadow-cyan-500/10 dark:border-zinc-800 dark:bg-zinc-900">
             <div className="flex items-center gap-1.5 border-b border-zinc-200 px-4 py-3 dark:border-zinc-800">
               <span className="h-3 w-3 rounded-full bg-rose-400" />
               <span className="h-3 w-3 rounded-full bg-amber-400" />
@@ -108,7 +108,7 @@ export default function ProjectDetail({
             </Reveal>
 
             {p.highlight && (
-              <Reveal className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-rose-500/10 via-indigo-500/10 to-sky-500/10 p-6 sm:p-8 dark:border-zinc-800">
+              <Reveal className="rounded-2xl border border-zinc-200 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-blue-500/10 p-6 sm:p-8 dark:border-zinc-800">
                 <h2 className="mb-3 text-xl font-semibold">{p.highlight.title}</h2>
                 {p.highlight.body && <p className="leading-relaxed text-zinc-600 dark:text-zinc-400">{p.highlight.body}</p>}
                 {p.highlight.points && (
@@ -164,7 +164,7 @@ export default function ProjectDetail({
         {/* Next project */}
         <Reveal className="mt-20">
           <Link href={`/projects/${next.slug}`}
-            className="group flex items-center justify-between gap-6 rounded-2xl border border-zinc-200 p-6 transition-all hover:border-indigo-400 hover:shadow-lg hover:shadow-indigo-500/10 sm:p-8 dark:border-zinc-800 dark:hover:border-indigo-500">
+            className="group flex items-center justify-between gap-6 rounded-2xl border border-zinc-200 p-6 transition-all hover:border-cyan-500 hover:shadow-lg hover:shadow-cyan-500/10 sm:p-8 dark:border-zinc-800 dark:hover:border-cyan-500">
             <div className="space-y-1">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Next project</p>
               <p className="text-2xl font-semibold tracking-tight">{next.title}</p>

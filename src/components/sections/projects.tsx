@@ -18,7 +18,7 @@ export default function Projects() {
           {projects.map((p, i) => (
             <Reveal key={p.slug} delay={(i % 2) * 0.08} className="h-full">
               <Link href={`/projects/${p.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-zinc-800 dark:bg-black">
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 dark:border-zinc-800 dark:bg-black">
                 <div className="relative aspect-[2/1] overflow-hidden border-b border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
                   <Image src={p.image} alt={`${p.title} screenshot`} fill placeholder="blur"
                     sizes="(min-width: 768px) 480px, 100vw"

@@ -1,11 +1,13 @@
 "use client"
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useSpring } from "framer-motion";
 import ThemeToggle from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
+import logo from "@/assets/images/logo.png";
 
 const nav = [
   { id: "about", label: "About" },
@@ -57,9 +59,8 @@ export default function SiteHeader() {
     >
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="group flex items-center gap-2 font-semibold tracking-tight" aria-label="Home">
-          <span className="bg-gradient-brand grid h-8 w-8 place-items-center rounded-lg text-sm text-white shadow-sm transition-transform group-hover:scale-105">
-            RM
-          </span>
+          <Image src={logo} alt="" width={36} height={36} priority
+            className="h-9 w-9 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" />
           <span className="hidden sm:inline">Radithya Mirza</span>
         </Link>
 

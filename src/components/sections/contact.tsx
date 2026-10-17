@@ -23,9 +23,9 @@ export default function Contact() {
       <Reveal className="bg-gradient-brand relative overflow-hidden rounded-3xl p-px">
         <div className="relative overflow-hidden rounded-[calc(1.5rem-1px)] bg-white px-6 py-14 text-center sm:px-12 dark:bg-black">
           <div aria-hidden className="bg-grid absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
-          <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-rose-500/10 via-indigo-500/10 to-sky-500/10" />
+          <div aria-hidden className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-cyan-500/10 to-blue-500/10" />
           <div className="relative mx-auto max-w-xl space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">Contact</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400">Contact</p>
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
               Want to <span className="text-gradient">collaborate?</span>
             </h2>
@@ -34,7 +34,7 @@ export default function Contact() {
             </p>
             <div className="flex flex-col items-center justify-center gap-3 pt-2 sm:flex-row">
               <a href={`mailto:${profile.email}`}
-                className="bg-gradient-brand group inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-500/25 transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2">
+                className="bg-gradient-brand group inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white shadow-lg shadow-cyan-500/25 transition-transform hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2">
                 <Mail className="h-5 w-5 group-hover:animate-bounce" />
                 Email Me
               </a>

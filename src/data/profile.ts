@@ -83,7 +83,7 @@ export const expertise: { title: string; years: string; icon: IconType; color: s
     title: "Web Development",
     years: "4+ years",
     icon: FaReact,
-    color: "text-indigo-500",
+    color: "text-cyan-500",
     description:
       "Scalable web applications with React.js, Next.js, Node.js and Spring Boot: REST APIs, responsive UIs, authentication and cloud integrations.",
   },
@@ -91,7 +91,7 @@ export const expertise: { title: string; years: string; icon: IconType; color: s
     title: "Mobile Development",
     years: "2+ years",
     icon: FaMobileAlt,
-    color: "text-rose-500",
+    color: "text-teal-500",
     description:
       "React Native and Flutter apps with push notifications, secure authentication and seamless API integration for fintech and productivity.",
   },

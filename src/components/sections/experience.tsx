@@ -17,14 +17,14 @@ export default function Experience() {
           {experience.map((job, i) => (
             <li key={`${job.company}-${job.role}`} className="relative">
               <span aria-hidden
-                className={`absolute -left-[31px] top-6 h-3.5 w-3.5 rounded-full border-2 border-white sm:-left-[39px] dark:border-black ${i === 0 ? "bg-gradient-brand ring-4 ring-indigo-500/20" : "bg-zinc-300 dark:bg-zinc-700"}`} />
+                className={`absolute -left-[31px] top-6 h-3.5 w-3.5 rounded-full border-2 border-white sm:-left-[39px] dark:border-black ${i === 0 ? "bg-gradient-brand ring-4 ring-cyan-500/20" : "bg-zinc-300 dark:bg-zinc-700"}`} />
               <Reveal delay={i * 0.06}
-                className="rounded-2xl border border-zinc-200 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-indigo-500/5 dark:border-zinc-800 dark:bg-black">
+                className="rounded-2xl border border-zinc-200 bg-white p-6 transition-shadow hover:shadow-lg hover:shadow-cyan-500/5 dark:border-zinc-800 dark:bg-black">
                 <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
                   <h3 className="text-lg font-semibold">{job.role}</h3>
                   <p className="text-sm text-zinc-500">{job.period}</p>
                 </div>
-                <p className="font-medium text-indigo-600 dark:text-indigo-400">{job.company}</p>
+                <p className="font-medium text-cyan-700 dark:text-cyan-400">{job.company}</p>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{job.description}</p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {job.tags.map((t) => (
@@ -38,7 +38,7 @@ export default function Experience() {
 
         <div className="mt-16">
           <Reveal className="mb-6 flex items-center gap-2">
-            <GraduationCap className="h-5 w-5 text-indigo-500" />
+            <GraduationCap className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
             <h3 className="text-xl font-semibold">Education</h3>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -47,7 +47,7 @@ export default function Experience() {
                 className="rounded-2xl border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-black">
                 <p className="text-xs text-zinc-500">{e.period}</p>
                 <p className="mt-2 font-semibold leading-snug">{e.degree}</p>
-                <p className="text-sm text-indigo-600 dark:text-indigo-400">{e.school}</p>
+                <p className="text-sm text-cyan-700 dark:text-cyan-400">{e.school}</p>
                 {e.detail && <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{e.detail}</p>}
               </Reveal>
             ))}

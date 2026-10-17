@@ -18,7 +18,7 @@ export default function Hero() {
     <section className="relative isolate overflow-hidden">
       {/* Backdrop: faint grid + brand glow */}
       <div aria-hidden className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
-      <div aria-hidden className="absolute -top-32 left-1/2 -z-10 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-rose-500/20 via-indigo-500/20 to-sky-500/20 blur-3xl" />
+      <div aria-hidden className="absolute -top-32 left-1/2 -z-10 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 blur-3xl" />
 
       <div className="mx-auto grid max-w-5xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-[1fr_auto] md:pb-24 md:pt-20">
         <div className="space-y-7">
@@ -48,7 +48,7 @@ export default function Hero() {
 
           <motion.div {...fadeUp(0.24)} className="flex flex-wrap items-center gap-3">
             <Link href="/#projects"
-              className="bg-gradient-brand group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition-transform hover:scale-[1.03]">
+              className="bg-gradient-brand group inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-500/20 transition-transform hover:scale-[1.03]">
               View my work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>

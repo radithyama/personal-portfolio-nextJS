@@ -4,8 +4,8 @@ import SectionHeading from "@/components/section-heading";
 import { about, techStack } from "@/data/profile";
 
 const pillars = [
-  { icon: Code2, title: "Software Engineering", body: about.engineering, tint: "from-indigo-500/15 to-sky-500/10", iconColor: "text-indigo-500" },
-  { icon: ShieldCheck, title: "Cybersecurity Research", body: about.security, tint: "from-rose-500/15 to-indigo-500/10", iconColor: "text-rose-500" },
+  { icon: Code2, title: "Software Engineering", body: about.engineering, tint: "from-cyan-500/15 to-blue-500/10", iconColor: "text-cyan-500" },
+  { icon: ShieldCheck, title: "Cybersecurity Research", body: about.security, tint: "from-emerald-500/15 to-cyan-500/10", iconColor: "text-emerald-500" },
 ];
 
 export default function About() {
@@ -34,7 +34,7 @@ export default function About() {
         <ul className="flex flex-wrap gap-2">
           {techStack.map((t) => (
             <li key={t}
-              className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-700 transition-colors hover:border-indigo-400 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-indigo-500 dark:hover:text-white">
+              className="rounded-full border border-zinc-200 bg-white px-3 py-1 text-sm text-zinc-700 transition-colors hover:border-cyan-500 hover:text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-300 dark:hover:border-cyan-500 dark:hover:text-white">
               {t}
             </li>
           ))}
