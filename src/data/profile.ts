@@ -128,3 +128,14 @@ export const expertise: { title: string; years: string; icon: IconType; color: s
       "Secure coding practices, vulnerability assessments and research into secure software development.",
   },
 ];
+
+// Key facts shown in the hero's "whoami" card
+export const snapshot: { key: string; value: string }[] = [
+  { key: "role", value: "Backend Engineer @ BNI" },
+  { key: "builds", value: "Payments: QRIS, NFC, transfers" },
+  { key: "stack", value: "Java · Spring Boot · Kafka" },
+  { key: "ships_on", value: "Docker · Kubernetes · GCP · AWS" },
+  { key: "studying", value: "M. Cybersecurity @ Monash" },
+  { key: "research", value: "Secure SDLC · dependency risk" },
+  { key: "based_in", value: "Jakarta, Indonesia" },
+];

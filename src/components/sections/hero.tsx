@@ -1,10 +1,9 @@
 "use client"
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
-import pp from "@/assets/images/profile.jpeg";
+import WhoamiCard from "@/components/whoami-card";
 import { profile, socials, stats } from "@/data/profile";
 
 const fadeUp = (delay: number) => ({
@@ -20,7 +19,7 @@ export default function Hero() {
       <div aria-hidden className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top,black_30%,transparent_75%)]" />
       <div aria-hidden className="absolute -top-32 left-1/2 -z-10 h-[28rem] w-[56rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-blue-500/20 blur-3xl" />
 
-      <div className="mx-auto grid max-w-5xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-[1fr_auto] md:pb-24 md:pt-20">
+      <div className="mx-auto grid max-w-5xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-[1fr_auto] md:gap-10 md:pb-24 md:pt-20">
         <div className="space-y-7">
           <motion.div {...fadeUp(0)}
             className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white/70 px-3 py-1 text-xs font-medium text-zinc-700 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/70 dark:text-zinc-300">
@@ -67,20 +66,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Portrait */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="relative mx-auto w-48 sm:w-60 md:mx-0 md:w-72"
-        >
-          <div aria-hidden className="bg-gradient-brand absolute -inset-1 rounded-[2rem] opacity-70 blur-xl" />
-          <div className="bg-gradient-brand relative rounded-[2rem] p-[3px]">
-            <Image src={pp} alt={`Portrait of ${profile.name}`} priority placeholder="blur"
-              sizes="(min-width: 768px) 288px, 256px"
-              className="aspect-[4/5] w-full rounded-[calc(2rem-3px)] object-cover" />
-          </div>
-        </motion.div>
+        <WhoamiCard />
       </div>
 
       {/* Stats */}
