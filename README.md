@@ -8,10 +8,10 @@ Radithya's personal portfolio website, built with Next.js 15 (App Router), React
 .
 ├── .github/workflows/ci-cd.yml   # Lint + build on every push/PR, deploy to the VM on main
 ├── deploy/
-│   ├── setup-vm.sh               # One-time VM bootstrap (Node, nginx, swap, systemd)
+│   ├── setup-vm.sh               # One-time VM bootstrap (Node, nginx, TLS cert, swap, systemd)
 │   ├── deploy.sh                 # Pull, build, restart (run by CI on the VM)
 │   ├── portfolio.service         # systemd unit running `next start` on 127.0.0.1:3000
-│   └── nginx.conf                # Reverse proxy on port 80
+│   └── nginx.conf                # HTTPS reverse proxy; HTTP redirects to https://radithyama.site
 ├── src/
 │   ├── app/                      # Routes: home page + /projects/<slug>
 │   ├── assets/images/            # Profile picture and project screenshots (static imports)
@@ -19,6 +19,7 @@ Radithya's personal portfolio website, built with Next.js 15 (App Router), React
 │   │   └── ui/                   # shadcn/ui primitives
 │   ├── data/portfolio.ts         # Skills and portfolio project content
 │   └── lib/utils.ts
+├── vercel.json                   # Disables Vercel Git deployments (hosting is the VM)
 └── package.json, next.config.ts, tailwind.config.ts, tsconfig.json, ...
 ```
 
@@ -35,6 +36,6 @@ Open http://localhost:3000.
 
 ## Deployment
 
-Pushing to `main` triggers GitHub Actions: it lints and builds, then SSHes into the GCE VM and runs `deploy/deploy.sh`. That script checks out the latest `main` in `/opt/portfolio`, runs `npm ci && npm run build`, and restarts the `portfolio` systemd service. nginx serves the site on port 80.
+The site is served at https://radithyama.site (TLS via Let's Encrypt, auto-renewed by certbot). Pushing to `main` triggers GitHub Actions: it lints and builds, then SSHes into the GCE VM and runs `deploy/deploy.sh`. That script checks out the latest `main` in `/opt/portfolio`, runs `npm ci && npm run build`, and restarts the `portfolio` systemd service. nginx terminates TLS on port 443 and proxies to the app.
 
 Required repository secrets: `VM_HOST`, `VM_USER`, `VM_SSH_KEY` (private key for the deploy user), `VM_KNOWN_HOSTS`.

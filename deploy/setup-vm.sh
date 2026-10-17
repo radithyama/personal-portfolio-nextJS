@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One-time VM bootstrap: Node.js, nginx, swap, deploy user, app clone, systemd service.
+# One-time VM bootstrap: Node.js, nginx + Let's Encrypt TLS, swap, deploy user, app clone, systemd service.
 # Usage (on the VM, as root): bash setup-vm.sh [repo-url] [branch]
 set -euo pipefail
 
@@ -7,10 +7,11 @@ REPO_URL="${1:-https://github.com/radithyama/personal-portfolio-nextJS.git}"
 BRANCH="${2:-main}"
 APP_DIR=/opt/portfolio
 APP_USER=deploy
+DOMAIN=radithyama.site
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
-apt-get install -y ca-certificates curl git nginx
+apt-get install -y ca-certificates curl git nginx certbot
 
 # Node.js 22 LTS
 if ! command -v node >/dev/null || [[ "$(node -v)" != v22* ]]; then
@@ -40,6 +41,14 @@ if [[ ! -d "$APP_DIR/.git" ]]; then
   sudo -u "$APP_USER" git clone -b "$BRANCH" "$REPO_URL" "$APP_DIR"
 fi
 sudo -u "$APP_USER" bash -c "cd $APP_DIR && npm ci --no-audit --no-fund && npm run build"
+
+# TLS certificate. Issued with certbot's standalone server; the hooks stop nginx
+# for the few seconds it needs port 80, both now and on automatic renewal.
+if [[ ! -d "/etc/letsencrypt/live/$DOMAIN" ]]; then
+  certbot certonly --standalone -d "$DOMAIN" --non-interactive --agree-tos \
+    --register-unsafely-without-email \
+    --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
+fi
 
 # systemd + nginx
 install -m 644 "$APP_DIR/deploy/portfolio.service" /etc/systemd/system/portfolio.service
