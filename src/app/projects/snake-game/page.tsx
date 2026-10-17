@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
-import snakeGame from "../../../public/snake-game.png";
+import snakeGame from "@/assets/images/projects/snake-game.png";
 
 export default function SnakeGameDetail() {
   return (
