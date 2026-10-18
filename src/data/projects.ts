@@ -1,7 +1,8 @@
 import type { StaticImageData } from "next/image";
 import type { LucideIcon } from "lucide-react";
 import {
-  Boxes, Cloud, Cpu, Database, FileSearch, KeyRound, LayoutDashboard, ListTree, Radio, ScanLine, Send, Server, Upload,
+  Boxes, CalendarDays, Cloud, Cpu, Database, FileSearch, KeyRound, LayoutDashboard, ListTree, Map as MapIcon, Radio, ScanLine, Send, Server,
+  ShieldCheck, Sparkles, Upload,
 } from "lucide-react";
 import uldpulseOps from "@/assets/images/projects/uldpulse-operations.png";
 import uldpulseNetwork from "@/assets/images/projects/uldpulse-network.png";
@@ -9,6 +10,9 @@ import uldpulseSoc from "@/assets/images/projects/uldpulse-soc.png";
 import forensicsResults from "@/assets/images/projects/forensics-results.png";
 import forensicsSimulation from "@/assets/images/projects/forensics-simulation.png";
 import planit from "@/assets/images/projects/planit.png";
+import planitForm from "@/assets/images/projects/planit-form.png";
+import planitPreferences from "@/assets/images/projects/planit-preferences.png";
+import planitTrips from "@/assets/images/projects/planit-trips.png";
 import musawarah from "@/assets/images/projects/musawarah.png";
 import shinyapp from "@/assets/images/projects/shiny-app.png";
 import snakeGame from "@/assets/images/projects/snake-game.png";
@@ -50,7 +54,7 @@ export const projects: Project[] = [
       "Real-time air-cargo tracking: event-driven Go microservices with chaos-tested delivery and SOC-ready security telemetry.",
     summary:
       "Tracks every air-cargo container live, from warehouse scan to aircraft hold, and loses zero data through a Kafka outage.",
-    image: uldpulseOps,
+    image: uldpulseNetwork,
     accent: "text-cyan-700 dark:text-cyan-400",
     category: "Real-time Systems · Security",
     type: "Distributed System / Web App",
@@ -100,8 +104,8 @@ export const projects: Project[] = [
       "Sandbox that fires real detections through the pipeline",
     ],
     gallery: [
+      { image: uldpulseNetwork, caption: "Flight network: aircraft and the containers on board flying between hubs, with live ETAs." },
       { image: uldpulseOps, caption: "Operations floor: every container's position in the warehouse, updated live over WebSockets." },
-      { image: uldpulseNetwork, caption: "Flight network: containers in the air between hubs, with live ETAs." },
       { image: uldpulseSoc, caption: "SOC console: security alerts by rule family, with triage actions and an audit trail." },
     ],
     extras: [
@@ -181,27 +185,68 @@ export const projects: Project[] = [
   {
     slug: "planit",
     title: "Planit",
-    tagline: "Ready to plan your trip? A comprehensive travel planning application.",
-    summary: "A responsive travel planner for building itineraries, tracking budgets and sharing trips.",
+    tagline: "AI travel itinerary planner: give it your dates, budget, pace and interests, and get a day-by-day plan.",
+    summary:
+      "An AI travel planner that turns your dates, budget and interests into a day-by-day itinerary with times, costs and map links.",
     image: planit,
     accent: "text-blue-600 dark:text-blue-400",
-    category: "Travel",
+    category: "AI · Travel",
     type: "Web Application",
-    year: "2024",
+    year: "2026",
     status: "Live",
-    tech: ["Next.js", "TypeScript", "Gemini API", "PostgreSQL", "Drizzle ORM", "Clerk", "TailwindCSS", "GitHub Actions"],
-    live: { label: "Live Demo", href: "https://planit.radithyama.site" },
+    tech: ["Next.js", "TypeScript", "Gemini API", "PostgreSQL", "Drizzle ORM", "Clerk", "TailwindCSS", "three.js", "GitHub Actions"],
+    live: { label: "Plan a trip", href: "https://planit.radithyama.site" },
     source: "https://github.com/radithyama/ai-itinerary-planner",
+    problem:
+      "Planning a trip usually means a dozen open tabs: blogs, maps, opening hours, prices, and a spreadsheet to keep it all within budget. Planit does the first draft for you. Tell it where (or let it surprise you), when, who's coming, how busy you want each day and what you enjoy, and it builds a realistic day-by-day plan you can tweak, share and print.",
     about: [
-      "Planit is a comprehensive travel planning application designed to help users organize and plan their trips efficiently. The application provides an intuitive interface for creating detailed itineraries, managing travel expenses, and discovering new destinations.",
-      "Built with modern web technologies, Planit offers a seamless user experience with responsive design that works across all devices. Users can easily add destinations, plan activities, set budgets, and share their itineraries with travel companions.",
+      "Planit is an AI travel itinerary planner. You pick a destination or press 'Surprise me', choose your dates, group size, pace, budget and interests, and it generates a day-by-day itinerary with times, estimated costs, map links and local tips.",
+      "Itineraries are generated with the Gemini API using JSON structured output, then validated and costed on the server before they are saved. Trips live in a personal My Trips dashboard, stay private unless you share them, and any single day can be regenerated with a request like 'more food, less walking'.",
+      "It runs on the same Google Cloud VM as this portfolio, deployed by a GitHub Actions pipeline that builds in CI, health-checks each release and rolls back automatically if a release doesn't come up.",
+    ],
+    metrics: [
+      { value: "14", label: "Days per trip, planned stop by stop" },
+      { value: "7", label: "Currencies for budgets, from IDR to GBP" },
+      { value: "3", label: "Pace options, from 2–3 to 5+ stops a day" },
+      { value: "~200 MB", label: "Memory used by the production server" },
+    ],
+    flow: {
+      title: "How a trip gets planned",
+      intro: "From the form to a saved itinerary in one request, with the AI's answer checked before anything is stored.",
+      steps: [
+        { icon: CalendarDays, title: "Trip form", tech: "Next.js · shadcn/ui", body: "You choose a destination (or 'Surprise me'), dates up to 14 days, travelers, pace, a budget in one of 7 currencies, and interests." },
+        { icon: ShieldCheck, title: "Server action", tech: "Clerk · zod", body: "Checks that you're signed in, validates every field, and enforces a daily limit of new plans per user." },
+        { icon: Sparkles, title: "AI generation", tech: "Gemini API", body: "Your preferences become a structured prompt. Gemini must answer in a fixed JSON schema, with one automatic retry if the service is busy." },
+        { icon: ListTree, title: "Validate & cost", tech: "zod", body: "The reply is validated again on the server with safe fallbacks, and the trip total is recalculated from each activity rather than trusting the model's sum." },
+        { icon: Database, title: "Save", tech: "PostgreSQL · Drizzle ORM", body: "The itinerary is stored against your account, private by default." },
+        { icon: MapIcon, title: "Your itinerary", tech: "Next.js", body: "Day cards with times, costs, map links and tips. Regenerate a single day, share a link, or print and save as PDF." },
+      ],
+    },
+    safeguards: [
+      { title: "Never trust the model blindly", body: "Gemini is constrained to a JSON schema and its reply is re-validated with zod. Bad categories or costs fall back to safe defaults, and totals are recomputed on the server." },
+      { title: "Cost and abuse limits", body: "Each user can create a limited number of plans and day regenerations per 24 hours, which keeps the AI bill predictable on a public site." },
+      { title: "Private by default", body: "Sign-in is handled by Clerk. A plan is only visible to its owner until they choose to share it." },
+      { title: "Safe deploys with rollback", body: "CI lints, type-checks, tests and builds a standalone server, migrates the database over an SSH tunnel, switches releases atomically, and rolls back if the health check doesn't report the new version. The database is backed up nightly." },
     ],
     features: [
-      "Interactive trip planning interface",
-      "Budget tracking and expense management",
-      "Collaborative trip sharing",
-      "Destination recommendations",
-      "Mobile-responsive design",
+      "Day-by-day plans with times, costs and map links",
+      "'Surprise me' destination picker",
+      "Budget tracking per activity, per day and per trip",
+      "Regenerate one day with your own request",
+      "My Trips dashboard with private share links",
+      "Print or save any itinerary as PDF",
+    ],
+    gallery: [
+      { image: planit, caption: "Home: start planning or pick a suggested destination, over an interactive three.js globe." },
+      { image: planitForm, caption: "Plan a trip: destination (or 'Surprise me') and travel dates up to 14 days." },
+      { image: planitPreferences, caption: "Preferences: travelers, pace, budget in your currency, and interests." },
+      { image: planitTrips, caption: "My Trips: every saved itinerary at a glance, newest first." },
+    ],
+    extras: [
+      {
+        title: "Try it yourself",
+        body: "Open Planit, sign in, and press 'Plan my trip', or tap one of the suggested destinations to start.",
+      },
     ],
   },
   {
