@@ -26,7 +26,12 @@ export default function Projects() {
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-6">
                   <div className="flex items-center justify-between text-xs text-zinc-500">
-                    <span>{p.category}</span>
+                    <span className="flex items-center gap-2">
+                      {p.featured && (
+                        <span className="bg-gradient-brand rounded-full px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-white">Featured</span>
+                      )}
+                      {p.category}
+                    </span>
                     <span>{p.year}</span>
                   </div>
                   <h3 className={`flex items-center gap-1 text-xl font-semibold ${p.accent}`}>

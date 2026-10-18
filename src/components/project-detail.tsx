@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, ExternalLink, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ExternalLink, Lightbulb, Mail, ShieldCheck } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Reveal from "@/components/reveal";
+import FlowDiagram from "@/components/flow-diagram";
 import type { Project } from "@/data/projects";
 
 function SideCard({ title, children }: { title: string; children: React.ReactNode }) {
@@ -29,7 +30,7 @@ export default function ProjectDetail({
   ];
 
   return (
-    <article className="relative isolate">
+    <article className="relative isolate overflow-x-clip">
       <div aria-hidden className="bg-grid absolute inset-x-0 top-0 -z-10 h-[32rem] [mask-image:radial-gradient(ellipse_at_top,black_25%,transparent_70%)]" />
       <div aria-hidden className="absolute -top-24 left-1/2 -z-10 h-80 w-[48rem] -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-500/15 via-cyan-500/15 to-blue-500/15 blur-3xl" />
 
@@ -83,9 +84,33 @@ export default function ProjectDetail({
           </div>
         </Reveal>
 
+        {p.metrics && (
+          <Reveal className="mb-16">
+            <dl className="grid grid-cols-2 divide-zinc-200 overflow-hidden rounded-2xl border border-zinc-200 lg:grid-cols-4 lg:divide-x dark:divide-zinc-800 dark:border-zinc-800">
+              {p.metrics.map((m) => (
+                <div key={m.label} className="border-zinc-200 p-5 [&:nth-child(-n+2)]:border-b lg:[&:nth-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r lg:[&:nth-child(odd)]:border-r-0 dark:border-zinc-800">
+                  <dt className="sr-only">{m.label}</dt>
+                  <dd className="text-gradient text-3xl font-bold tracking-tight">{m.value}</dd>
+                  <dd className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">{m.label}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        )}
+
         {/* Body */}
         <div className="grid gap-10 lg:grid-cols-3">
           <div className="space-y-12 lg:col-span-2">
+            {p.problem && (
+              <Reveal className="rounded-2xl border border-cyan-500/30 bg-cyan-500/5 p-6">
+                <h2 className="mb-2 flex items-center gap-2 text-lg font-semibold">
+                  <Lightbulb className="h-5 w-5 text-cyan-600 dark:text-cyan-400" />
+                  The problem, in plain terms
+                </h2>
+                <p className="leading-relaxed text-zinc-700 dark:text-zinc-300">{p.problem}</p>
+              </Reveal>
+            )}
+
             <Reveal className="space-y-4">
               <h2 className="text-2xl font-semibold tracking-tight">About the Project</h2>
               {p.about.map((para) => (
@@ -160,6 +185,55 @@ export default function ProjectDetail({
             </Reveal>
           </aside>
         </div>
+
+        {p.flow && (
+          <div className="mt-20">
+            <FlowDiagram flow={p.flow} />
+          </div>
+        )}
+
+        {p.safeguards && (
+          <section aria-labelledby="safeguards" className="mt-20 space-y-8">
+            <Reveal className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400">Reliability & security</p>
+              <h2 id="safeguards" className="text-2xl font-semibold tracking-tight sm:text-3xl">Built to fail safely</h2>
+            </Reveal>
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {p.safeguards.map((g, i) => (
+                <li key={g.title}>
+                  <Reveal delay={(i % 2) * 0.05} className="h-full rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-black">
+                    <h3 className="mb-2 flex items-center gap-2 font-semibold">
+                      <ShieldCheck className="h-5 w-5 shrink-0 text-emerald-500" />
+                      {g.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">{g.body}</p>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {p.gallery && (
+          <section aria-labelledby="gallery" className="mt-20 space-y-8">
+            <Reveal className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:text-cyan-400">Screenshots</p>
+              <h2 id="gallery" className="text-2xl font-semibold tracking-tight sm:text-3xl">Inside the app</h2>
+            </Reveal>
+            <div className="space-y-10">
+              {p.gallery.map((g) => (
+                <Reveal key={g.caption}>
+                  <figure className="space-y-3">
+                    <div className="overflow-hidden rounded-2xl border border-zinc-200 shadow-xl shadow-cyan-500/5 dark:border-zinc-800">
+                      <Image src={g.image} alt={g.caption} placeholder="blur" sizes="(min-width: 1024px) 976px, 100vw" className="h-auto w-full" />
+                    </div>
+                    <figcaption className="text-center text-sm text-zinc-600 dark:text-zinc-400">{g.caption}</figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Next project */}
         <Reveal className="mt-20">
