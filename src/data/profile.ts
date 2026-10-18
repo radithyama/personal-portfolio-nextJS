@@ -13,7 +13,7 @@ export const profile = {
 };
 
 export const socials: { label: string; href: string; icon: IconType }[] = [
-  { label: "GitHub", href: "https://github.com/radithyamirza", icon: FaGithub },
+  { label: "GitHub", href: "https://github.com/radithyama", icon: FaGithub },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/radithya-mirza-aribowo/", icon: FaLinkedin },
   { label: "Medium", href: "https://medium.com/@radithyamirza", icon: FaMedium },
 ];

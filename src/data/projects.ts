@@ -301,7 +301,6 @@ export const projects: Project[] = [
     status: "Live",
     tech: ["Next.js", "React", "JavaScript", "TailwindCSS"],
     live: { label: "Play Snake Game", href: "https://snake.radithyama.app/" },
-    source: "https://github.com/radithyamirza/snake-game",
     about: [
       "Snake Game is a web-based recreation of the classic arcade game. The project was built to practice coding logic, state management, and interactive UI design. The player controls a snake that moves around the board, eats food to grow longer, and must avoid colliding with itself or the walls.",
       "The game features smooth controls, a responsive grid, and a simple scoring system. It is a great exercise for learning about game loops, keyboard events, collision detection, and dynamic rendering in web development.",
