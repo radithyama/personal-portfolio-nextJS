@@ -189,8 +189,9 @@ export const projects: Project[] = [
     type: "Web Application",
     year: "2024",
     status: "Live",
-    tech: ["React.js", "Node.js", "Express.js", "MongoDB", "TailwindCSS"],
-    live: { label: "Live Demo", href: "https://planit-planner.vercel.app/" },
+    tech: ["Next.js", "TypeScript", "Gemini API", "PostgreSQL", "Drizzle ORM", "Clerk", "TailwindCSS", "GitHub Actions"],
+    live: { label: "Live Demo", href: "https://planit.radithyama.site" },
+    source: "https://github.com/radithyama/ai-itinerary-planner",
     about: [
       "Planit is a comprehensive travel planning application designed to help users organize and plan their trips efficiently. The application provides an intuitive interface for creating detailed itineraries, managing travel expenses, and discovering new destinations.",
       "Built with modern web technologies, Planit offers a seamless user experience with responsive design that works across all devices. Users can easily add destinations, plan activities, set budgets, and share their itineraries with travel companions.",
